@@ -5,6 +5,7 @@ interface Card {
   image: string;
   title: string;
   description: string;
+  link: string;
 }
 
 interface Props {
@@ -60,11 +61,16 @@ const {
           {cards.map((card, index) => (
             <div class="card" key={index}>
               <div class="card__image-wrapper">
-                <img src={card.image} alt="">
+                <img src={card.image} alt={card.title} />
               </div>
               <div class="card__content-wrapper">
                 <div class="title-h3">{card.title}</div>
                 <p class="mt-16">{card.description}</p>
+                {card.link &&(
+                  <div class="buttons-wrapper mt-24">
+                    <a href={card.link} class="button button--small">Подробнее</a>
+                  </div>
+                )}
               </div>
             </div>
           ))}
