@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeaderBlockType1 from '../components/blocks/HeaderBlockType1.astro';
 import CardsBlockType1 from '../components/blocks/CardsBlockType1.astro';
 import CardsBlockType2 from '../components/blocks/CardsBlockType2.astro';
+import BlockquoteBlockType1 from '../components/blocks/BlockquoteBlockType1.astro';
 ---
 
 <BaseLayout title="Главная">
@@ -68,6 +69,14 @@ import CardsBlockType2 from '../components/blocks/CardsBlockType2.astro';
     >
   </CardsBlockType1>
 
+  <BlockquoteBlockType1
+    id=""
+    class="mt-64 mt-sm-96 mt-md-128"
+    blockquoteText="«Дерево — материал, который становится красивее, когда стареет. Оно хранит тепло рук и свет солнца. Именно поэтому вещи из дерева не просто служат — они живут вместе с вами. И с каждым годом обретают особый характер, свою историю.»"
+    blockquoteAuthor="- Команда проекта Hidamari -"
+    >
+  </BlockquoteBlockType1>
+
   <CardsBlockType2
     id=""
     class="pt-64 pt-sm-96 pt-md-128"
@@ -98,6 +107,5 @@ import CardsBlockType2 from '../components/blocks/CardsBlockType2.astro';
     ]}
     >
   </CardsBlockType2>
-
 
 </BaseLayout>

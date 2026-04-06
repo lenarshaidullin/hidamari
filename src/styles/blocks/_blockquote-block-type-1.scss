@@ -1,0 +1,21 @@
+@use '../common/tokens' as *;
+
+.blockquote-block-type-1 {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background: $gray-800;
+}
+
+@media(min-width: $sm) {
+  .blockquote-block-type-1 {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+}
+
+@media(min-width: $md) {
+  .blockquote-block-type-1 {
+    padding-top: 128px;
+    padding-bottom: 128px;
+  }
+}
