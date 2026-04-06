@@ -1,0 +1,48 @@
+@use '../common/tokens' as *;
+
+.cards-block-type-2{
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .card {
+    /*
+    padding: 24px;
+    background: unset;
+    border: 1px solid $gray-800;
+    border-radius: 16px;
+    */
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    img {
+      border-radius: 16px;
+    }
+  }
+}
+
+@media(min-width: $sm) {
+  .cards-block-type-2 {
+    .cards {
+      gap: 64px;
+    }
+    .card {
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      &:nth-child(even) {
+        .card__image-wrapper {
+          order: 1;
+        }
+      }
+    }
+  }
+}
+
+@media(min-width: $md) {
+  .cards-block-type-2 {
+    
+  }
+}

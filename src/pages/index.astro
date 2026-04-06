@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeaderBlockType1 from '../components/blocks/HeaderBlockType1.astro';
+import CardsBlockType1 from '../components/blocks/CardsBlockType1.astro';
+import CardsBlockType2 from '../components/blocks/CardsBlockType2.astro';
 ---
 
 <BaseLayout title="Главная">
@@ -8,15 +10,90 @@ import HeaderBlockType1 from '../components/blocks/HeaderBlockType1.astro';
   <HeaderBlockType1
     id=""
     class=""
+
+    subtitle="Столярная мастерская"
+    title="Предметы ручной работы, которые хочется оставить рядом надолго"
+    description="Уникальные изделия из массива дерева ручной работы. Натуральные материалы, внимание к деталям и безупречное качество"
     >
-    <h1 class="title-h4">Threat Intelligence</h1>
-    <h2 class="title-h1 mt-16">Проактивный <br>анализ киберугроз</h2>
-    <div class="mw-wrapper mt-16">
-      <p class="factor-a">Повышайте уровень кибербезопасности и отражайте атаки еще до их начала</p>
-    </div>
-    <div class="buttons-wrapper mt-72">
-      <a href="#form-block" class="button button--filled--white scroll-to">Запросить демо</a>
+    <div class="buttons-wrapper buttons-wrapper--jcc mt-48">
+      <a href="#" class="button scroll-to">Выбрать изделие</a>
     </div>
   </HeaderBlockType1>
+
+  <CardsBlockType2
+    id=""
+    class="pt-64 pt-sm-96 pt-md-128"
+
+    subtitle=""
+    title=""
+    description=""
+
+    cards={[
+      {
+        image: "https://hidamari.ru/wp-content/uploads/ff261b.jpg",
+        title: "Что такое Hidamari?",
+        description: "Hidamari — это японское слово, означающее солнечное пятно на полу. Это тихое уютное ощущение, которое хочется продлить. Такими мы создаём наши изделия: не кричащими, не требующими внимания, а просто тёплыми местами в вашем доме. Мы верим, что в мире цифрового шума важно окружать себя подлинными вещами. Такими, которые стареют красиво, приобретая благородную патину времени и сохраняя историю прикосновений."
+      },
+    ]}
+    >
+  </CardsBlockType2>
+
+  <CardsBlockType1
+    id=""
+    class="pt-64 pt-sm-96 pt-md-128"
+
+    subtitle="Наши"
+    title="Преимущества"
+    description=""
+
+    cards={[
+      {
+        title: "Материалы",
+        description: "Дуб, ясень, бук, орех - только массив, без шпона и имитаций"
+      },
+      {
+        title: "Защита",
+        description: "Покрытие натуральными составами: масло, воск"
+      },
+      {
+        title: "Гарантия",
+        description: "Отвечаем за каждое изделие, если возникнет вопрос — найдём решение без бюрократии"
+      },
+      {
+        title: "Упаковка",
+        description: "Надёжно упаковываем каждое изделие: пупырка, картон, стрейч-пленка"
+      },
+    ]}
+    >
+  </CardsBlockType1>
+
+  <CardsBlockType2
+    id=""
+    class="pt-64 pt-sm-96 pt-md-128"
+
+    subtitle="Наш подход"
+    title="Внимание к каждой детали"
+    description=""
+
+    cards={[
+      {
+        image: "https://hidamari.ru/wp-content/uploads/ff261b.jpg",
+        title: "Заголовок",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+      {
+        image: "https://hidamari.ru/wp-content/uploads/ff261b.jpg",
+        title: "Заголовок",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+      {
+        image: "https://hidamari.ru/wp-content/uploads/ff261b.jpg",
+        title: "Заголовок",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+    ]}
+    >
+  </CardsBlockType2>
+
 
 </BaseLayout>

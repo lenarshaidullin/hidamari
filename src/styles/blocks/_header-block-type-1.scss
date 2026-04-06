@@ -1,5 +1,22 @@
 @use '../common/tokens' as *;
 
 .header-block-type-1 {
-  color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 600px;
+  background: $gray-800;
+}
+
+@media(min-width: $sm) {
+  .header-block-type-1 {
+    min-height: 700px;
+  }
+}
+
+@media(min-width: $md) {
+  .header-block-type-1 {
+    min-height: 800px;
+  }
 }

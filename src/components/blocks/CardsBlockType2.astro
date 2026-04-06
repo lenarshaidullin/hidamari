@@ -1,0 +1,76 @@
+---
+import '../../styles/blocks/_cards-block-type-2.scss';
+
+interface Card {
+  image: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  id?: string;
+  class?: string;
+
+  subtitle?: string;
+  title?: string;
+  description?: string;
+
+  cards: Card[];
+}
+
+const { 
+  id, 
+  class: className = '', 
+
+  subtitle,
+  title, 
+  description,
+
+  cards =[]
+} = Astro.props;
+
+---
+
+<div class={`cards-block-type-2 ${className}`} id={id || undefined}>
+  <div class="container">
+
+    <div class="row">
+      <div class="c-12 c-md-10 m-md-1">
+        {subtitle &&(
+          <div class="subtitle text--center mb-16">
+            <slot name="subtitle">{subtitle}</slot>
+          </div>
+        )}
+        {title &&(
+          <h2 class="title-h2 text--center">
+            <slot name="title">{title}</slot>
+          </h2>
+        )}
+        {description &&(
+          <div class="mw-wrapper mw-wrapper--center mt-16">
+            <p class="text--center">{description}</p>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <div class={`row ${title || description ? 'mt-48' : ''}`}>
+      <div class="c-12">
+        <div class="cards">
+          {cards.map((card, index) => (
+            <div class="card" key={index}>
+              <div class="card__image-wrapper">
+                <img src={card.image} alt="">
+              </div>
+              <div class="card__content-wrapper">
+                <div class="title-h3">{card.title}</div>
+                <p class="mt-16">{card.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

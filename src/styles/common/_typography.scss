@@ -1,20 +1,24 @@
 @use '_tokens' as *;
 
 body {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+body {
+  color: $gray-500;
+  background: $gray-900;
 }
 
 p {
   padding: 0;
   margin: 0;
-  
-  font-size: 16px;
+
   line-height: 1.5;
 }
 
 a {
-  color: $gray-600;
+  color: $gray-500;
   text-decoration: none;
 }
 
@@ -28,36 +32,35 @@ h6, .title-h6 {
   padding: 0;
   margin: 0;
 
-  font-family: 'Factor-A', sans-serif;
-  font-weight: 700;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
 
   line-height: 1.1;
-  color: $gray-900;
+  color: $white;
 
 }
 
-.factor-a {
-  font-family: 'Factor-A', sans-serif;
-  font-weight: 600;
+.subtitle {
+  
 }
 
 .text--x-small {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .text--small {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .text--medium {
   font-weight: 500;
 }
 
-.color--black {
-  color: $gray-900;
+.text--bold {
+  font-weight: 600;
 }
 
-.title-h1 { font-size: 24px; } // предложить +4 илл +8 на мобилках
+.title-h1 { font-size: 28px; }
 .title-h2 { font-size: 24px; }
 .title-h3 { font-size: 24px; }
 .title-h4 { font-size: 20px; }

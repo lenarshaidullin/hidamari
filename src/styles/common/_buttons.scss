@@ -27,8 +27,8 @@
   border: none;
   border-radius: 12px;
 
-  color: $white;
-  background: $gray-900;
+  color: $gray-900;
+  background: $white;
 
   transition: $transition;
 
@@ -37,26 +37,6 @@
     pointer-events: none;
     cursor: not-allowed;
     
-  }
-
-  &--filled--white {
-    color: $gray-900;
-    background: $white;
-    &:hover {
-      background: $gray-100;
-    }
-  }
-
-  &--outlined--white {
-    color: $white;
-    background: transparent;
-    border: 1px solid $white;
-  }
-
-  &--outlined--black {
-    color: $gray-900;
-    background: transparent;
-    border: 1px solid $gray-900;
   }
 
 }
