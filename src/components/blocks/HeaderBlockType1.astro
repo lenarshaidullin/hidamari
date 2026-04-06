@@ -1,0 +1,49 @@
+---
+import '../../styles/blocks/_header-block-type-1.scss';
+
+interface Props {
+  id?: string;
+  class?: string;
+  subtitle?: string;
+  title?: string;
+  description?: string;
+  bgVideoUrl?: string;
+  bgImageUrl?: string;
+}
+
+const { 
+  id, 
+  class: className = '', 
+  subtitle,
+  title, 
+  description,
+  bgVideoUrl,
+  bgImageUrl
+} = Astro.props;
+
+---
+
+<div class={`header-block-type-1 ${className}`} id={id || undefined}>
+  {bgVideoUrl && (
+    <video autoplay muted loop playsinline class="header-block-type-1__video">
+      <source src={bgVideoUrl} type="video/mp4" />
+    </video>
+  )}
+  {bgImageUrl && (
+    <img src={bgImageUrl} alt="" class="header-block-type-1__image" />
+  )}
+  <div class="container">
+    <div class="row">
+      <div class="c-12">
+        <h1 class="title-h4">{subtitle}</h1>
+        <h2 class="title-h1 mt-16">
+          <slot name="title">{title}</slot>
+        </h2>
+        <div class="mw-wrapper mt-16">
+          <p>{description}</p>
+        </div>
+        <slot/>
+      </div>
+    </div>
+  </div>
+</div>

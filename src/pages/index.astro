@@ -1,14 +1,22 @@
 ---
-import '../styles/main.scss'
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeaderBlockType1 from '../components/blocks/HeaderBlockType1.astro';
 ---
 
-<html lang="ru">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Главная">
+
+  <HeaderBlockType1
+    id=""
+    class=""
+    >
+    <h1 class="title-h4">Threat Intelligence</h1>
+    <h2 class="title-h1 mt-16">Проактивный <br>анализ киберугроз</h2>
+    <div class="mw-wrapper mt-16">
+      <p class="factor-a">Повышайте уровень кибербезопасности и отражайте атаки еще до их начала</p>
+    </div>
+    <div class="buttons-wrapper mt-72">
+      <a href="#form-block" class="button button--filled--white scroll-to">Запросить демо</a>
+    </div>
+  </HeaderBlockType1>
+
+</BaseLayout>

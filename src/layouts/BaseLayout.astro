@@ -1,0 +1,35 @@
+---
+import Head from '../components/common/Head.astro';
+import Header from '../components/common/Header.astro';
+import Nav from '../components/common/Nav.astro';
+import Footer from '../components/common/Footer.astro';
+import '../styles/main.scss';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <Head />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <Nav />
+    
+    <main>
+      <slot />
+    </main>
+    
+    <Footer />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/js/main.js" is:inline></script>
+
+  </body>
+</html>

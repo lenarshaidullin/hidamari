@@ -1,0 +1,62 @@
+@use '_tokens' as *;
+
+.buttons-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  &--jcc {
+    justify-content: center;
+  }
+
+}
+
+.button {
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 130%;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 16px 24px;
+  border: none;
+  border-radius: 12px;
+
+  color: $white;
+  background: $gray-900;
+
+  transition: $transition;
+
+  &.disabled {
+    opacity: .5;
+    pointer-events: none;
+    cursor: not-allowed;
+    
+  }
+
+  &--filled--white {
+    color: $gray-900;
+    background: $white;
+    &:hover {
+      background: $gray-100;
+    }
+  }
+
+  &--outlined--white {
+    color: $white;
+    background: transparent;
+    border: 1px solid $white;
+  }
+
+  &--outlined--black {
+    color: $gray-900;
+    background: transparent;
+    border: 1px solid $gray-900;
+  }
+
+}

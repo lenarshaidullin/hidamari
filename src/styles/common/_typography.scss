@@ -1,0 +1,75 @@
+@use '_tokens' as *;
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+  
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a {
+  color: $gray-600;
+  text-decoration: none;
+}
+
+h1, .title-h1,
+h2, .title-h2,
+h3, .title-h3,
+h4, .title-h4,
+h5, .title-h5,
+h6, .title-h6 {
+
+  padding: 0;
+  margin: 0;
+
+  font-family: 'Factor-A', sans-serif;
+  font-weight: 700;
+
+  line-height: 1.1;
+  color: $gray-900;
+
+}
+
+.factor-a {
+  font-family: 'Factor-A', sans-serif;
+  font-weight: 600;
+}
+
+.text--x-small {
+  font-size: 12px;
+}
+
+.text--small {
+  font-size: 14px;
+}
+
+.text--medium {
+  font-weight: 500;
+}
+
+.color--black {
+  color: $gray-900;
+}
+
+.title-h1 { font-size: 24px; } // предложить +4 илл +8 на мобилках
+.title-h2 { font-size: 24px; }
+.title-h3 { font-size: 24px; }
+.title-h4 { font-size: 20px; }
+.title-h5 { font-size: 16px; }
+
+@media(min-width: $sm) {
+  .title-h1 { font-size: 48px; }
+  .title-h2 { font-size: 40px; }
+  .title-h3 { }
+  .title-h4 { }
+}
+
+@media(min-width: $md) {
+  .title-h1 { font-size: 64px; }
+}

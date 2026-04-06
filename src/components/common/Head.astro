@@ -1,0 +1,95 @@
+---
+type Props = {
+  title: string;
+  description?: string;
+  canonical?: string;
+  css?: string | string[];
+
+  noindex?: boolean;
+
+  ogType?: "website" | "article";
+  ogImage?: string;
+  ogImageAlt?: string;
+  siteName?: string;
+
+  twitterCard?: "summary" | "summary_large_image";
+
+  jsonLd?: Record<string, any> | Record<string, any>[];
+};
+
+const {
+  title,
+  description,
+  canonical,
+  css,
+
+  noindex = true,
+
+  ogType = "website",
+  ogImage,
+  ogImageAlt,
+  siteName = "Название сайта",
+
+  twitterCard = ogImage ? "summary_large_image" : "summary",
+
+  jsonLd,
+} = Astro.props as Props;
+
+const ogLocale = "ru_RU";
+const autoCanonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
+const canonicalUrl = canonical ?? autoCanonical;
+const ogImageUrl = ogImage && Astro.site ? new URL(ogImage, Astro.site).toString() : ogImage;
+const desc = description?.trim();
+const cssList = Array.isArray(css) ? css : (css ? [css] : []);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Фавиконка -->
+
+<!-- Основные параметры -->
+<title>{title}</title>
+{desc && <meta name="description" content={desc} />}
+{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+<!-- Настройки индексирования -->
+<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+
+<!-- Шрифты -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link rel="stylesheet" href="/fonts/Factor-A/Factor-A.css" />
+
+<!-- Плагины -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+
+<!-- Стили -->
+<link rel="stylesheet" href="/css/styles.min.css" />
+{cssList.map((href) => <link rel="stylesheet" href={href} />)}
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+{desc && <meta property="og:description" content={desc} />}
+{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+<meta property="og:type" content={ogType} />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:site_name" content={siteName} />
+{ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+{ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
+
+<!-- Twitter -->
+<meta name="twitter:card" content={twitterCard} />
+<meta name="twitter:title" content={title} />
+{desc && <meta name="twitter:description" content={desc} />}
+{ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+
+<!-- JSON-LD -->
+{jsonLd && (
+  <script type="application/ld+json">
+    {JSON.stringify(jsonLd)}
+  </script>
+)}
