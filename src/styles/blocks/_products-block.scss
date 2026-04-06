@@ -1,0 +1,53 @@
+@use '../common/tokens' as *;
+
+.products-block {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .card {
+    padding: 24px;
+    background: $gray-8;
+    border: 1px solid $gray-12;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    &--hidden {
+      display: none;
+      opacity: 0;
+    }
+    &--visible {
+      animation: fadeIn .2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(min-width: $sm) {
+  .products-block {
+    .cards {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media(min-width: $md) {
+  .products-block {
+    .cards {
+      
+    }
+  }
+}

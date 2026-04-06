@@ -1,0 +1,108 @@
+---
+import '../../styles/blocks/_products-block.scss';
+
+interface Card {
+  category: string;
+  image: string;
+  title: string;
+  description: string;
+  price: string;
+}
+
+interface Props {
+  id?: string;
+  class?: string;
+
+  subtitle?: string;
+  title?: string;
+  description?: string;
+
+  cards: Card[];
+}
+
+const { 
+  id, 
+  class: className = '', 
+
+  subtitle,
+  title, 
+  description,
+  cards =[]
+} = Astro.props;
+
+---
+
+<div class={`products-block ${className}`} id={id || undefined}>
+  <div class="container">
+
+    <div class="row">
+      <div class="c-12 c-md-10 m-md-1">
+        {subtitle &&(
+          <div class="subtitle text--center mb-16">
+            <slot name="subtitle">{subtitle}</slot>
+          </div>
+        )}
+        {title &&(
+          <h2 class="title-h2 text--center">
+            <slot name="title">{title}</slot>
+          </h2>
+        )}
+        {description &&(
+          <div class="mw-wrapper mw-wrapper--center mt-16">
+            <p class="text--center">{description}</p>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <div class={`row ${title || description ? 'mt-48' : ''}`}>
+      <div class="c-12">
+        <div class="buttons-wrapper buttons-wrapper--jcc filter-buttons">
+          <div class="button button--small active" data-filter="all">Все изделия</div>
+          <div class="button button--small" data-filter="polki">Полки</div>
+          <div class="button button--small" data-filter="chabani">Чабани</div>
+          <div class="button button--small" data-filter="stoliki-i-podnosy">Столики и подносы</div>
+          <div class="button button--small" data-filter="lampy">Лампы</div>
+          <div class="button button--small" data-filter="drugoe">Другое</div>
+        </div>
+        <div class="cards mt-48">
+          {cards.map((card, index) => (
+            <div class="card" data-category={card.category}>
+              <div class="card__image-wrapper">
+                <!-- <img src={card.image} alt={card.title}> -->
+              </div>
+              <div class="card__content-wrapper">
+                <div class="title-h3">{card.title}</div>
+                <p class="text--small mt-16" style="white-space: pre-line">{card.description}</p>
+                <p class="text--medium mt-16">{card.price}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.products-block').forEach(wrapper => {
+      const filterContainer = wrapper.querySelector('.filter-buttons');
+      const cards = wrapper.querySelectorAll('.card');
+      if (!filterContainer) return;
+      filterContainer.addEventListener('click', (e) => {
+        const button = e.target.closest('.button');
+        if (!button) return;
+        filterContainer.querySelectorAll('.active').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+        cards.forEach(card => {
+          const match = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('card--hidden', !match);
+          card.classList.toggle('card--visible', match);
+        });
+      });
+    });
+  });
+</script>
