@@ -1,0 +1,54 @@
+@use '../common/tokens' as *;
+
+.faq-block {
+  .faq {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    &-item {
+      border: 1px solid $gray-12;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-radius .2s;
+      &__title {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+
+        padding: 24px;
+        background: $gray-8;
+        cursor: pointer;
+        .icon {
+          font-family: 'Material Symbols Outlined';
+          font-size: 24px;
+          color: $white;
+          pointer-events: none;
+          &:before {
+            content: 'keyboard_arrow_down';
+            transition: content .2s ease;
+          }
+        }
+        &.active .icon::before {
+          content: 'keyboard_arrow_up';
+        }
+      }
+      &__content {
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        transition: max-height .2s ease, visibility .2s ease;
+        background: $gray-8;
+        .text--default {
+          padding: 24px;
+        }
+        &.active {
+          visibility: visible;
+          border-top: 1px solid $gray-12;
+        }
+      }
+    }
+  }
+}

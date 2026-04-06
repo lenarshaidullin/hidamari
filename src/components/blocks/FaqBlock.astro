@@ -1,0 +1,92 @@
+---
+import '../../styles/blocks/_faq-block.scss';
+
+interface FaqItem {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  id?: string;
+  subtitle?: string;
+  title?: string;
+  description?: string;
+  faqItems: FaqItem[];
+}
+
+const { 
+  id, 
+  class: className = '', 
+
+  subtitle,
+  title, 
+  description,
+
+  faqItems =[]
+} = Astro.props;
+
+---
+
+<div class={`faq-block ${className}`} id={id || undefined}>
+  <div class="container">
+
+    <div class="row">
+      <div class="c-12 c-md-10 m-md-1">
+        {subtitle &&(
+          <div class="subtitle text--center mb-16">
+            <slot name="subtitle">{subtitle}</slot>
+          </div>
+        )}
+        {title &&(
+          <h2 class="title-h2 text--center">
+            <slot name="title">{title}</slot>
+          </h2>
+        )}
+        {description &&(
+          <div class="mw-wrapper mw-wrapper--center mt-16">
+            <p class="text--center">{description}</p>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <div class={`row ${title || description ? 'mt-48' : ''}`}>
+      <div class="c-12 c-sm-10 m-sm-1 c-md-8 m-md-2">
+        <div class="faq">
+          {faqItems.map((faqItem, index) => (
+            <div key={index} class="faq-item">
+              <div class="faq-item__title"><span class="title-h4">{faqItem.title}</span><span class="icon"></span></div>
+              <div class="faq-item__content">
+                <div class="text--default">
+                  <p>{faqItem.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p class="text--center mt-48">Остались вопрос? Свяжитесь с нами</p>
+        <div class="buttons-wrapper buttons-wrapper--jcc mt-16">
+          <a href="#" class="button button--outlined--gray">Задать вопрос</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const title = item.querySelector('.faq-item__title');
+    const content = item.querySelector('.faq-item__content');
+    title.addEventListener('click', () => {
+      title.classList.toggle('active');
+      content.classList.toggle('active');
+      if(content.classList.contains('active')) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+      else {
+        content.style.maxHeight = "0";
+      }
+    });
+  });
+</script>

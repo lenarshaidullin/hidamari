@@ -27,22 +27,36 @@
   border: none;
   border-radius: 12px;
 
-  color: $gray-900;
+  color: $gray-4;
   background: $white;
 
   transition: $transition;
+
+  &:hover {
+    background: $gray-92;
+  }
 
   &.disabled {
     opacity: .5;
     pointer-events: none;
     cursor: not-allowed;
-    
   }
 
   &--small {
     font-size: 12px;
     padding: 8px 16px;
     border-radius: 6px;
+  }
+
+  &--outlined--gray {
+    color: $gray-52;
+    background: transparent;
+    border: 1px solid $gray-52;
+    &:hover {
+      color: $white;
+      background: transparent;
+      border-color: $white;
+    }
   }
 
 }

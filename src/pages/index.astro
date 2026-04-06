@@ -4,6 +4,8 @@ import HeaderBlockType1 from '../components/blocks/HeaderBlockType1.astro';
 import CardsBlockType1 from '../components/blocks/CardsBlockType1.astro';
 import CardsBlockType2 from '../components/blocks/CardsBlockType2.astro';
 import BlockquoteBlockType1 from '../components/blocks/BlockquoteBlockType1.astro';
+import FaqBlock from '../components/blocks/FaqBlock.astro';
+import CtaBlockType1 from '../components/blocks/CtaBlockType1.astro';
 ---
 
 <BaseLayout title="Главная">
@@ -107,5 +109,57 @@ import BlockquoteBlockType1 from '../components/blocks/BlockquoteBlockType1.astr
     ]}
     >
   </CardsBlockType2>
+
+  <CtaBlockType1
+    id=""
+    class="pt-64 pt-sm-96 pt-md-128"
+
+    subtitle="Как сделать"
+    title="Индивидуальный заказ"
+    description="Иногда готовое изделие — не то, что нужно. Пространство требует своих размеров. Человек — своих ощущений. Настроение — своей формы. В Hidamari мы оставляем место для диалога. Расскажите нам о своём доме, о ритуале, о том, чего не хватает — и мы создадим предмет, который ляжет в жизнь естественно, как солнечное пятно на полу."
+    >
+    <div class="buttons-wrapper buttons-wrapper--jcc mt-48">
+      <a href="#" class="button">Обсудить заказ</a>
+    </div>
+  </CtaBlockType1>
+
+  <FaqBlock
+    id=""
+    class="pt-64 pt-sm-96 pt-md-128"
+
+    subtitle="Ответы на"
+    title="Часто задаваемые вопросы"
+    description=""
+
+    faqItems={[
+      {
+        title: "Из чего сделаны изделия?",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+      {
+        title: "Чем покрыты изделия?",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+      {
+        title: "Можно ли сделать изделие на заказ?",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+      {
+        title: "Можно ли будет повесить полку на стену?",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+      {
+        title: "Разбираются ли полки?",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+      {
+        title: "Есть ли скидки?",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+    ]}
+    >
+  </FaqBlock>
+
+  
 
 </BaseLayout>
