@@ -58,24 +58,20 @@ const {
     <div class={`row ${title || description ? 'mt-48' : ''}`}>
       <div class="c-12">
         <div class="buttons-wrapper buttons-wrapper--jcc filter-buttons">
-          <div class="button button--small active" data-filter="all">Все изделия</div>
-          <div class="button button--small" data-filter="polki">Полки</div>
-          <div class="button button--small" data-filter="chabani">Чабани</div>
-          <div class="button button--small" data-filter="stoliki-i-podnosy">Столики и подносы</div>
-          <div class="button button--small" data-filter="lampy">Лампы</div>
-          <div class="button button--small" data-filter="drugoe">Другое</div>
+          <div class="button button--filled--gray button--small active" data-filter="all">Все</div>
+          <div class="button button--filled--gray button--small" data-filter="polki">Полки</div>
+          <div class="button button--filled--gray button--small" data-filter="chabani">Чабани</div>
+          <div class="button button--filled--gray button--small" data-filter="stoliki-i-podnosy">Столики и подносы</div>
+          <div class="button button--filled--gray button--small" data-filter="lampy">Лампы</div>
+          <div class="button button--filled--gray button--small" data-filter="drugoe">Другое</div>
         </div>
         <div class="cards mt-48">
           {cards.map((card, index) => (
             <div class="card" data-category={card.category}>
-              <div class="card__image-wrapper">
-                <!-- <img src={card.image} alt={card.title}> -->
-              </div>
-              <div class="card__content-wrapper">
-                <div class="title-h3">{card.title}</div>
-                <p class="text--small mt-16" style="white-space: pre-line">{card.description}</p>
-                <p class="text--medium mt-16">{card.price}</p>
-              </div>
+              <img src={card.image} alt={card.title}>
+              <div class="title-h5 mt-16">{card.title}</div>
+              <p class="text--small mt-16" style="white-space: pre-line">{card.description}</p>
+              <div class="title-h5 mt-16">{card.price}</div>
             </div>
           ))}
         </div>

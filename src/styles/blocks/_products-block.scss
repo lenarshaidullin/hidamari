@@ -11,9 +11,9 @@
     background: $gray-8;
     border: 1px solid $gray-12;
     border-radius: 16px;
-
-    display: flex;
-    flex-direction: column;
+    img {
+      border-radius: 16px;
+    }
 
     &--hidden {
       display: none;

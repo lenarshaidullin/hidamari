@@ -30,11 +30,8 @@
   color: $gray-4;
   background: $white;
 
+  cursor: pointer;
   transition: $transition;
-
-  &:hover {
-    background: $gray-92;
-  }
 
   &.disabled {
     opacity: .5;
@@ -46,6 +43,18 @@
     font-size: 12px;
     padding: 8px 16px;
     border-radius: 6px;
+  }
+
+  &--filled--gray {
+    color: $white;
+    background: $gray-16;
+    &:hover {
+      background: $gray-20;
+    }
+    &.active {
+      color: $gray-4;
+      background: $gray-92;
+    }
   }
 
   &--outlined--gray {
