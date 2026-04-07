@@ -1,0 +1,71 @@
+---
+import '../../styles/blocks/_contacts-block.scss';
+
+interface Props {
+  id?: string;
+  class?: string;
+
+  subtitle?: string;
+  title?: string;
+  description?: string;
+}
+
+const { 
+  id, 
+  class: className = '', 
+
+  subtitle,
+  title, 
+  description
+} = Astro.props;
+
+---
+
+<div class={`contacts-block ${className}`} id={id || undefined}>
+  <div class="container">
+
+    <div class="row">
+      <div class="c-12 c-md-10 m-md-1">
+        {subtitle &&(
+          <div class="subtitle text--center mb-16">
+            <slot name="subtitle">{subtitle}</slot>
+          </div>
+        )}
+        {title &&(
+          <h2 class="title-h2 text--center">
+            <slot name="title">{title}</slot>
+          </h2>
+        )}
+        {description &&(
+          <div class="mw-wrapper mw-wrapper--center mt-16">
+            <p class="text--center">{description}</p>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <div class={`row ${title || description ? 'mt-48' : ''}`}>
+      <div class="c-12">
+        <div class="cards">
+          <div class="card">
+            <p class="text--x-small text--medium text--white">Адрес</p>
+            <p>Московская область, Ленинский район, пос. Боброво, ул. Лесная, д. 20</p>
+          </div>
+          <div class="card">
+            <p class="text--x-small text--medium text--white">Режим работы</p>
+            <p>ежедневно с 09:00 до 21:00</p>
+          </div>
+          <div class="card">
+            <p class="text--x-small text--medium text--white">Телефон</p>
+            <p><a href="tel:+7 (926) 867-06-80">+7 (926) 867-06-80</a></p>
+          </div>
+          <div class="card">
+            <p class="text--x-small text--medium text--white">Электропочта</p>
+            <p><a href="mailto:l.shaidullin@yandex.ru">l.shaidullin@yandex.ru</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,1 +1,39 @@
 @use '_tokens' as *;
+
+.footer {
+  &-widgets {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  &-widget {
+    &__links {
+      display: grid;
+      gap: 8px;
+      a {
+        font-size: 12px;
+      }
+    }
+  }
+  a {
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+@media(min-width: $sm) {
+  .footer {
+    &-widgets {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media(min-width: $md) {
+  .footer {
+    &-widgets {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+}

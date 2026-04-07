@@ -1,0 +1,36 @@
+@use '../common/tokens' as *;
+
+.contacts-block {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .card {
+    padding: 24px;
+    background: $gray-8;
+    border: 1px solid $gray-12;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+  }
+}
+
+@media(min-width: $sm) {
+ .contacts-block {
+    .cards {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media(min-width: $md) {
+  .contacts-block {
+    .cards {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+}

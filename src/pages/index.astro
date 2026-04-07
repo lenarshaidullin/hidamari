@@ -7,6 +7,7 @@ import BlockquoteBlockType1 from '../components/blocks/BlockquoteBlockType1.astr
 import FaqBlock from '../components/blocks/FaqBlock.astro';
 import CtaBlockType1 from '../components/blocks/CtaBlockType1.astro';
 import ProductsBlock from '../components/blocks/ProductsBlock.astro';
+import ContactsBlock from '../components/blocks/ContactsBlock.astro';
 ---
 
 <BaseLayout title="Главная">
@@ -20,7 +21,7 @@ import ProductsBlock from '../components/blocks/ProductsBlock.astro';
     description="Уникальные изделия из массива дерева ручной работы. Натуральные материалы, внимание к деталям и безупречное качество"
     >
     <div class="buttons-wrapper buttons-wrapper--jcc mt-48">
-      <a href="#" class="button scroll-to">Выбрать изделие</a>
+      <a href="#izdeliya" class="button scroll-to">Выбрать изделие</a>
     </div>
   </HeaderBlockType1>
 
@@ -112,7 +113,7 @@ import ProductsBlock from '../components/blocks/ProductsBlock.astro';
   </CardsBlockType2>
 
   <ProductsBlock
-    id=""
+    id="izdeliya"
     class="pt-64 pt-sm-96 pt-md-128"
 
     subtitle="Коллекция"
@@ -279,6 +280,15 @@ import ProductsBlock from '../components/blocks/ProductsBlock.astro';
     >
   </FaqBlock>
 
+  <ContactsBlock
+    id=""
+    class="pt-64 pt-sm-96 pt-md-128"
+
+    subtitle="Свяжитесь с нами"
+    title="Контакты"
+    description=""
+    >
+  </ContactsBlock>
 
 
 </BaseLayout>
