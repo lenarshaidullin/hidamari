@@ -1,1 +1,24 @@
 @use '_tokens' as *;
+
+.swiper {
+  position: relative;
+  &-pagination {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 48px;
+    &-bullet {
+      width: 24px;
+      height: 4px;
+      background: $gray-52;
+      border-radius: 16px;
+      opacity: unset;
+      &-active {
+        background: $white;
+      }
+    }
+  }
+}

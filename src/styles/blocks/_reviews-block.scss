@@ -1,0 +1,29 @@
+@use '../common/tokens' as *;
+
+.reviews-block {
+  .cards {
+    
+  }
+  .card {
+    padding: 24px;
+    background: $gray-8;
+    border: 1px solid $gray-12;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
+
+@media(min-width: $sm) {
+  .reviews-block {
+    
+  }
+}
+
+@media(min-width: $md) {
+  .reviews-block {
+    
+  }
+}

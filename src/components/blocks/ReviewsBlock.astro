@@ -1,0 +1,99 @@
+---
+import '../../styles/blocks/_reviews-block.scss';
+
+interface Review {
+  title: string;
+  description: string;
+  
+  rate: string;
+  service: string;
+  author: string;
+  source: string;
+}
+
+interface Props {
+  id?: string;
+  class?: string;
+
+  subtitle?: string;
+  title?: string;
+  description?: string;
+
+  reviews: Review[];
+}
+
+const { 
+  id, 
+  class: className = '', 
+
+  subtitle,
+  title, 
+  description,
+
+  reviews =[]
+} = Astro.props;
+
+---
+
+<div class={`reviews-block ${className}`} id={id || undefined}>
+  <div class="container">
+
+    <div class="row">
+      <div class="c-12 c-md-10 m-md-1">
+        {subtitle &&(
+          <div class="subtitle text--center mb-16">
+            <slot name="subtitle">{subtitle}</slot>
+          </div>
+        )}
+        {title &&(
+          <h2 class="title-h2 text--center">
+            <slot name="title">{title}</slot>
+          </h2>
+        )}
+        {description &&(
+          <div class="mw-wrapper mw-wrapper--center mt-16">
+            <p class="text--center">{description}</p>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <div class={`row ${title || description ? 'mt-48' : ''}`}>
+      <div class="c-12">
+        <div class="cards">
+          <div class="swiper swiper-reviews">
+            <div class="swiper-wrapper">
+              {reviews.map((review, index) => (
+                <div class="swiper-slide">
+                  <div class="card">
+                    <div class="title-h5">{review.title}</div>
+                    <p class="mt-16">{review.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script client:load>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.swiper-reviews').forEach(el => {
+      if (el.classList.contains('swiper-initialized')) return;
+      new Swiper(el, {
+        autoHeight: true,
+        pagination: { el: '.swiper-pagination', clickable: true },
+        breakpoints: {
+          0:    { slidesPerView: 1, slidesPerGroup: 1, spaceBetween: 8 },
+          767:  { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 8 },
+          // 1041: { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 8 },
+        },
+      });
+    });
+  });
+</script>
