@@ -1,0 +1,94 @@
+---
+import '../../styles/blocks/_gallery-block-type-1.scss';
+
+interface Image {
+  url: string;
+}
+
+interface Props {
+  id?: string;
+  class?: string;
+
+  subtitle?: string;
+  title?: string;
+  description?: string;
+
+  images: Image[];
+}
+
+const { 
+  id, 
+  class: className = '', 
+
+  subtitle,
+  title, 
+  description,
+  images =[]
+} = Astro.props;
+
+---
+
+<div class={`gallery-block-type-1 ${className}`} id={id || undefined}>
+  <div class="container">
+
+    <div class="row">
+      <div class="c-12 c-md-10 m-md-1">
+        {subtitle &&(
+          <div class="subtitle text--center mb-16">
+            <slot name="subtitle">{subtitle}</slot>
+          </div>
+        )}
+        {title &&(
+          <h2 class="title-h2 text--center">
+            <slot name="title">{title}</slot>
+          </h2>
+        )}
+        {description &&(
+          <div class="mw-wrapper mw-wrapper--center mt-16">
+            <p class="text--center">{description}</p>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <!-- 
+    <div class={`row ${title || description ? 'mt-48' : ''}`}>
+      <div class="c-12">
+        
+      </div>
+    </div>
+    -->
+
+  </div>
+
+  <div class="swiper swiper-gallery-block-type-1 mt-48">
+    <div class="swiper-wrapper">
+      {images.map((image, index) => (
+        <div class="swiper-slide">
+          <img src={image.url} alt={} />
+        </div>
+      ))}
+    </div>
+    <!-- <div class="swiper-pagination"></div> -->
+  </div>
+
+</div>
+
+<script client:load>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.swiper-gallery-block-type-1').forEach(el => {
+      if (el.classList.contains('swiper-initialized')) return;
+      new Swiper(el, {
+        loop: true,
+        autoplay: { delay: 1 },
+        speed: 32000,
+        // pagination: { el: '.swiper-pagination', clickable: true },
+        breakpoints: {
+          0:    { slidesPerView: 1, slidesPerGroup: 1, spaceBetween: 8 },
+          767:  { slidesPerView: 2, slidesPerGroup: 1, spaceBetween: 8 },
+          1041: { slidesPerView: 4, slidesPerGroup: 1, spaceBetween: 8 },
+        },
+      });
+    });
+  });
+</script>

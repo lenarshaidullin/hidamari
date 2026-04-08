@@ -10,6 +10,7 @@ import ProductsBlock from '../components/blocks/ProductsBlock.astro';
 import ContactsBlock from '../components/blocks/ContactsBlock.astro';
 import ReviewsBlock from '../components/blocks/ReviewsBlock.astro';
 import PriceTableBlock from '../components/blocks/PriceTableBlock.astro';
+import GalleryBlockType1 from '../components/blocks/GalleryBlockType1.astro';
 ---
 
 <BaseLayout title="Главная">
@@ -84,6 +85,25 @@ import PriceTableBlock from '../components/blocks/PriceTableBlock.astro';
     blockquoteAuthor="- Команда проекта Hidamari -"
     >
   </BlockquoteBlockType1>
+
+  <GalleryBlockType1
+    id=""
+    class="pt-64 pt-sm-96 pt-md-128"
+
+    subtitle=""
+    title="Атмосфера"
+    description="Детали, которые создают настроение"
+
+    images={[
+      { url: "/images/placeholders/placeholder-1000x1000.png" },
+      { url: "/images/placeholders/placeholder-1000x1000.png" },
+      { url: "/images/placeholders/placeholder-1000x1000.png" },
+      { url: "/images/placeholders/placeholder-1000x1000.png" },
+      { url: "/images/placeholders/placeholder-1000x1000.png" },
+      { url: "/images/placeholders/placeholder-1000x1000.png" },
+    ]}
+  >
+  </GalleryBlockType1>
 
   <CardsBlockType2
     id=""
@@ -317,91 +337,6 @@ import PriceTableBlock from '../components/blocks/PriceTableBlock.astro';
     ]}
     >
   </ReviewsBlock>
-
-  <PriceTableBlock
-    id=""
-    class="pt-64 pt-sm-96 pt-md-128"
-
-    subtitle="Актуальные"
-    title="Цены и спецпредложения"
-    description=""
-
-    items ={[
-      {
-        title: "Перетяжка сидений",
-        price: "от 100 000 ₽",
-      },
-      {
-        title: "Перетяжка дверных карт",
-        price: "от 10 000₽",
-      },
-      {
-        title: "Перетяжка потолка",
-        price: "от 25 000₽",
-      },
-      {
-        title: "Перетяжка торпедо",
-        price: "от 40 000₽",
-      },
-      {
-        title: "Перетяжка руля в натуральную кожу",
-        price: "от 12 000₽",
-      },
-      {
-        title: "Перетяжка клаксона руля",
-        price: "от 10 000₽",
-      },
-      {
-        title: "Перетяжка ручки КПП",
-        price: "от 3 000₽",
-      },
-      {
-        title: "Перетяжка пыльников КПП, ручного тормоза (ручника)",
-        price: "от 3 000₽",
-      },
-      {
-        title: "Перетяжка подлокотника",
-        price: "от 4 500₽",
-      },
-      {
-        title: "Замена лент ремней безопасности",
-        description: "за точку",
-        price: "от 6 000₽",
-      },
-      {
-        title: "Перетяжка мото-сидений",
-        description: "мотоциклы, квадроциклы, гидроциклы, снегоходы",
-        price: "от 13 000₽",
-      },
-      {
-        title: "Установка обогрева руля",
-        price: "от 30 000₽",
-      },
-      {
-        title: "Установка обогрева сидений",
-        description: "за место",
-        price: "от 15 000₽",
-      },
-      {
-        title: "Установка массажа/вентиляции сидений",
-        description: "за место",
-        price: "от 40 000₽",
-      },
-      {
-        title: "Ремонт пенолитья",
-        price: "от 5 000₽",
-      },
-      {
-        title: "Ремонт сидений",
-        price: "от 5 000₽",
-      },
-      {
-        title: "Изменение формы и внедрение геля в мото-сидение",
-        price: "от 10 000₽",
-      },
-    ]}
-  >
-  </PriceTableBlock>
 
   <CtaBlockType1
     id=""

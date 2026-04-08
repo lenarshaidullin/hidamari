@@ -64,7 +64,7 @@ const {
     <div class={`row ${title || description ? 'mt-48' : ''}`}>
       <div class="c-12">
         <div class="cards">
-          <div class="swiper swiper-reviews">
+          <div class="swiper swiper-reviews-block">
             <div class="swiper-wrapper">
               {reviews.map((review, index) => (
                 <div class="swiper-slide">
@@ -97,7 +97,7 @@ const {
 
 <script client:load>
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.swiper-reviews').forEach(el => {
+    document.querySelectorAll('.swiper-reviews-block').forEach(el => {
       if (el.classList.contains('swiper-initialized')) return;
       new Swiper(el, {
         autoHeight: true,

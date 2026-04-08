@@ -339,5 +339,8 @@
     background: $gray-8;
     border: 1px solid $gray-12;
     border-radius: 16px;
+    &:hover {
+      border: 1px solid $gray-16;
+    }
   }
 }
