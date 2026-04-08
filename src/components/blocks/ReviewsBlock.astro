@@ -2,6 +2,7 @@
 import '../../styles/blocks/_reviews-block.scss';
 
 interface Review {
+  image?: string;
   title?: string;
   description: string;
 
@@ -68,6 +69,7 @@ const {
               {reviews.map((review, index) => (
                 <div class="swiper-slide">
                   <div class="card">
+                    {review.image &&( <img src={review.image} alt={review.title} /> )}
                     {review.title &&( <div class="title-h5 mb-16">{review.title}</div> )}
                     <p>{review.description}</p>
                     {review.service &&( <p class="text--small mt-16"> {review.service}</p> )}
@@ -101,9 +103,9 @@ const {
         autoHeight: true,
         pagination: { el: '.swiper-pagination', clickable: true },
         breakpoints: {
-          0:    { slidesPerView: 1, slidesPerGroup: 1, spaceBetween: 8 },
-          767:  { slidesPerView: 2, slidesPerGroup: 2, spaceBetween: 8 },
-          // 1041: { slidesPerView: 3, slidesPerGroup: 3, spaceBetween: 8 },
+          0:    { slidesPerView: 1.1, slidesPerGroup: 1, spaceBetween: 8 },
+          767:  { slidesPerView: 2.3, slidesPerGroup: 2, spaceBetween: 8 },
+          1041: { slidesPerView: 2.6, slidesPerGroup: 2, spaceBetween: 8 },
         },
       });
     });

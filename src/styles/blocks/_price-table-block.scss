@@ -1,0 +1,49 @@
+@use '../common/tokens' as *;
+
+.price-table-block {
+  .table {
+    padding: 24px;
+    background: $gray-8;
+    border: 1px solid $gray-12;
+    border-radius: 16px;
+
+    &-item {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      align-items: center;
+      gap: 24px;
+
+      padding-top: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid $gray-12;
+
+      &__price {
+        white-space: nowrap;
+        text-align: right;
+      }
+      &:first-child {
+        padding-top: unset;
+      }
+      &:last-child {
+        padding-bottom: unset;
+        border-bottom: unset;
+      }
+    }
+  }
+}
+
+@media(min-width: $sm) {
+  .price-table-block {
+    .table {
+      padding: 32px;
+    }
+  }
+}
+
+@media(min-width: $md) {
+  .price-table-block {
+    .table {
+      padding: 40px;
+    }
+  }
+}
