@@ -2,13 +2,15 @@
 import '../../styles/blocks/_reviews-block.scss';
 
 interface Review {
-  title: string;
+  title?: string;
   description: string;
-  
+
   rate?: string;
   service?: string;
   author?: string;
   source?: string;
+  sourceLink?: string;
+  portfolioLink?: string;
 }
 
 interface Props {
@@ -66,16 +68,24 @@ const {
               {reviews.map((review, index) => (
                 <div class="swiper-slide">
                   <div class="card">
-                    <div class="">{review.rate}</div>
-                    <div class="title-h5">{review.title}</div>
-                    <p class="mt-16">{review.description}</p>
-                    {review.service}
+                    {review.title &&( <div class="title-h5 mb-16">{review.title}</div> )}
+                    <p>{review.description}</p>
+                    {review.service &&( <p class="text--small mt-16"> {review.service}</p> )}
+                    {review.author && ( <p class="text--small mt-8">{review.author}</p> )}
                   </div>
                 </div>
               ))}
             </div>
             <div class="swiper-pagination"></div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-48">
+      <div class="c-12">
+        <div class="buttons-wrapper buttons-wrapper--jcc">
+          <a href="#" class="button button--outlined--gray" target="_blank">Все отзывы</a>
         </div>
       </div>
     </div>

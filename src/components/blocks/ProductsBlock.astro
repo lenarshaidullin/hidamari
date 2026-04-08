@@ -1,11 +1,12 @@
 ---
 import '../../styles/blocks/_products-block.scss';
 
-interface Card {
+interface Product {
   category: string;
   image: string;
   title: string;
   description: string;
+  details: string;
   price: string;
 }
 
@@ -17,7 +18,7 @@ interface Props {
   title?: string;
   description?: string;
 
-  cards: Card[];
+  products: Product[];
 }
 
 const { 
@@ -27,7 +28,8 @@ const {
   subtitle,
   title, 
   description,
-  cards =[]
+  details,
+  products =[]
 } = Astro.props;
 
 ---
@@ -66,12 +68,13 @@ const {
           <div class="button button--filled--gray button--small" data-filter="drugoe">Другое</div>
         </div>
         <div class="cards mt-48">
-          {cards.map((card, index) => (
-            <div class="card" data-category={card.category}>
-              <img src={card.image} alt={card.title}>
-              <div class="title-h5 mt-16">{card.title}</div>
-              <p class="text--small mt-16" style="white-space: pre-line">{card.description}</p>
-              <div class="title-h5 mt-16">{card.price}</div>
+          {products.map((product, index) => (
+            <div class="card" data-category={product.category}>
+              <img src={product.image} alt={product.title} />
+              <div class="title-h5 mt-16">{product.title}</div>
+              <p class="text mt-16">{product.description}</p>
+              <p class="text--small mt-16" style="white-space: pre-line">{product.details}</p>
+              <div class="title-h5 mt-16">{product.price}</div>
             </div>
           ))}
         </div>
