@@ -68,7 +68,7 @@ const {
             <div class="swiper-wrapper">
               {reviews.map((review, index) => (
                 <div class="swiper-slide">
-                  <div class="card">
+                  <div class="card card--with-wrapper">
                     {review.image &&( <img src={review.image} alt={review.title} /> )}
                     {review.title &&( <div class="title-h5 mb-16">{review.title}</div> )}
                     <p>{review.description}</p>

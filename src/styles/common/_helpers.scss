@@ -332,3 +332,12 @@
 .border-top {
   border-top: 1px solid $gray-12;
 }
+
+.card {
+  &--with-wrapper {
+    padding: 24px;
+    background: $gray-8;
+    border: 1px solid $gray-12;
+    border-radius: 16px;
+  }
+}

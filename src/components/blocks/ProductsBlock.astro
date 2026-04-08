@@ -70,7 +70,7 @@ const {
         </div>
         <div class="cards mt-48">
           {products.map((product, index) => (
-            <div class="card" data-category={product.category}>
+            <div class="card card--with-wrapper" data-category={product.category}>
               <img src={product.image} alt={product.title} />
               <div class="title-h5 mt-16">{product.title}</div>
               {product.description &&( <p class="mt-16">{product.description}</p> )}
