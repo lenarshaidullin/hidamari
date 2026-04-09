@@ -76,4 +76,26 @@
     }
   }
 
+  &--icon {
+    padding: 0;
+    background-color: unset;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 32px;
+    width: 32px;
+    height: 32px;
+    &--vk { background-image: url('/images/icons/vk.svg'); }
+    &--telegram { background-image: url('/images/icons/telegram.svg'); }
+    &--max { background-image: url('/images/icons/max.svg'); }
+    &--pinterest { background-image: url('/images/icons/pinterest.svg'); }
+  }
+
+}
+
+.footer {
+  .button--icon {
+    width: 24px;
+    height: 24px;
+    background-size: 24px;
+  }
 }
