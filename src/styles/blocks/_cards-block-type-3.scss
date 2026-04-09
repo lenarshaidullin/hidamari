@@ -1,0 +1,31 @@
+@use '../common/tokens' as *;
+
+.cards-block-type-3 {
+ .cards {
+    &__title-wrapper {
+      margin-bottom: 48px;
+    }
+    &__cards-wrapper {
+      display: grid;
+      gap: 8px;
+    }
+  }
+}
+
+@media(min-width: $sm) {
+  .cards-block-type-3 {
+    .cards {
+      height: 100%;
+      &__title-wrapper {
+        position: sticky;
+        top: 48px;
+      }
+    }
+  }
+}
+
+@media(min-width: $md) {
+  .cards-block-type-3 {
+    
+  }
+}

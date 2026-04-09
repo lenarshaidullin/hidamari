@@ -11,6 +11,7 @@ import ContactsBlock from '../components/blocks/ContactsBlock.astro';
 import ReviewsBlock from '../components/blocks/ReviewsBlock.astro';
 import PriceTableBlock from '../components/blocks/PriceTableBlock.astro';
 import GalleryBlockType1 from '../components/blocks/GalleryBlockType1.astro';
+import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
 ---
 
 <BaseLayout title="Главная">
@@ -28,6 +29,48 @@ import GalleryBlockType1 from '../components/blocks/GalleryBlockType1.astro';
       <a href="#otzyvy" class="button button--outlined--gray scroll-to">Смотреть отзвыв</a>
     </div>
   </HeaderBlockType1>
+
+  <CardsBlockType3
+    id=""
+    class="pt-64 pt-sm-96 pt-md-128"
+
+    subtitle="Подзаголовок"
+    title="Заголовок"
+    description="Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.",
+    link="#",
+    linkText="Кнопка",
+
+    cards={[
+      {
+        subtitle: "шаг 1",
+        title: "Заголовок 1",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.",
+        link: "#",
+        linkText: "Текст ссылки"
+      },
+      {
+        subtitle: "шаг 2",
+        title: "Заголовок 2",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+      {
+        subtitle: "шаг 3",
+        title: "Заголовок 3",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+      {
+        subtitle: "шаг 4",
+        title: "Заголовок 4",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+      {
+        subtitle: "шаг 5",
+        title: "Заголовок 5",
+        description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
+      },
+    ]}
+  >
+  </CardsBlockType3>
 
   <CardsBlockType2
     id=""
@@ -340,7 +383,7 @@ import GalleryBlockType1 from '../components/blocks/GalleryBlockType1.astro';
 
   <CtaBlockType1
     id=""
-    class="pt-64 pt-sm-96 pt-md-128"
+    class="pt-64 pt-sm-96 pt-md-128 pb-64 pb-sm-96 pb-md-128 mt-64 mt-sm-96 mt-md-128"
 
     subtitle="Как сделать"
     title="Индивидуальный заказ"

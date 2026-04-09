@@ -61,15 +61,21 @@ const {
 
   </div>
 
-  <div class="swiper swiper-gallery-block-type-1 mt-48">
-    <div class="swiper-wrapper">
-      {images.map((image, index) => (
-        <div class="swiper-slide">
-          <img src={image.url} alt={} />
+  <div class="container-fluid">
+    <div class="row">
+      <div class="c-16">
+        <div class="swiper swiper-gallery-block-type-1 mt-48">
+          <div class="swiper-wrapper">
+            {images.map((image, index) => (
+              <div class="swiper-slide">
+                <img src={image.url} alt={} />
+              </div>
+            ))}
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
-      ))}
+      </div>
     </div>
-    <!-- <div class="swiper-pagination"></div> -->
   </div>
 
 </div>
@@ -79,10 +85,10 @@ const {
     document.querySelectorAll('.swiper-gallery-block-type-1').forEach(el => {
       if (el.classList.contains('swiper-initialized')) return;
       new Swiper(el, {
-        loop: true,
-        autoplay: { delay: 1 },
-        speed: 32000,
-        // pagination: { el: '.swiper-pagination', clickable: true },
+        // loop: true,
+        // autoplay: { delay: 1 },
+        // speed: 32000,
+        pagination: { el: '.swiper-pagination', clickable: true },
         breakpoints: {
           0:    { slidesPerView: 1, slidesPerGroup: 1, spaceBetween: 8 },
           767:  { slidesPerView: 2, slidesPerGroup: 1, spaceBetween: 8 },

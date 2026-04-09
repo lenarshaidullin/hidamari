@@ -1,0 +1,90 @@
+---
+import '../../styles/blocks/_cards-block-type-3.scss';
+
+interface Card {
+  subtitle?: string;
+  title: string;
+  description: string;
+  link?: string;
+  linkText: string;
+}
+
+interface Props {
+  id?: string;
+  class?: string;
+
+  subtitle?: string;
+  title?: string;
+  description?: string;
+
+  link?: string;
+  linkText: string;
+
+  cards: Card[];
+}
+
+const { 
+  id, 
+  class: className = '', 
+
+  subtitle,
+  title, 
+  description,
+  link,
+  linkText,
+
+  cards =[]
+} = Astro.props;
+
+---
+
+<div class={`cards-block-type-3 ${className}`} id={id || undefined}>
+  <div class="container">
+    <div class="row">
+      <div class="c-12 c-sm-5 c-md-6">
+        <div class="cards">
+          <div class="cards__title-wrapper">
+            {subtitle &&(
+              <div class="subtitle mb-16">
+                <slot name="subtitle">{subtitle}</slot>
+              </div>
+            )}
+            {title &&(
+              <h2 class="title-h2">
+                <slot name="title">{title}</slot>
+              </h2>
+            )}
+            {description &&(
+              <div class="mw-wrapper mt-16">
+                <p class="">{description}</p>
+              </div>
+            )}
+            {link &&(
+              <div class="buttons-wrapper mt-24">
+                <a href={link} class="button button--filled--white">{linkText}</a>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      <div class="c-12 c-sm-7 c-md-6">
+        <div class="cards">
+          <div class="cards__cards-wrapper">
+            {cards.map((card, index) => (
+              <div class="card card--with-wrapper">
+                {card.subtitle &&( <div class="subtitle mb-16">{card.subtitle}</div> )}
+                <div class="title-h4">{card.title}</div>
+                <p class="mt-16">{card.description}</p>
+                {card.link &&(
+                  <div class="buttons-wrapper mt-24">
+                    <a href={card.link} class="button--link">{card.linkText}</a>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

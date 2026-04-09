@@ -49,6 +49,10 @@
     border-radius: 6px;
   }
 
+  &--link {
+    color: $white;
+  }
+
   &--filled--gray {
     color: $white;
     background: $gray-16;
