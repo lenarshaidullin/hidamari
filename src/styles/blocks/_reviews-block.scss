@@ -9,10 +9,22 @@
     
   }
   .card {
-    display: flex;
-    flex-direction: column;
-    img {
-      border-radius: 16px;
+    &__images-wrapper {
+      display: flex;
+      gap: 4px;
+      img {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        object-fit: cover;
+        object-position: center center;
+        box-shadow: -4px -2px 16px 4px rgba(0,0,0,.24);
+        /*
+        &:nth-child(n+2) {
+          margin-left: -16px;
+        }
+        */
+      }
     }
   }
   

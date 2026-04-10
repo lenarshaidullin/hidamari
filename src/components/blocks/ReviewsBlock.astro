@@ -2,12 +2,11 @@
 import '../../styles/blocks/_reviews-block.scss';
 
 interface Review {
-  image?: string;
+  images?: string[];
   title?: string;
   description: string;
 
   rate?: string;
-  service?: string;
   author?: string;
   source?: string;
   sourceLink?: string;
@@ -69,11 +68,14 @@ const {
               {reviews.map((review, index) => (
                 <div class="swiper-slide">
                   <div class="card card--with-wrapper">
-                    {review.image &&( <img src={review.image} alt={review.title} /> )}
+                    {review.images && (
+                      <div class="card__images-wrapper mb-24">
+                         {review.images?.map(img => ( <img src={img} alt={review.title} /> ))}
+                      </div>
+                    )}
                     {review.title &&( <div class="title-h5 mb-16">{review.title}</div> )}
                     <p>{review.description}</p>
-                    {review.service &&( <p class="text--small mt-16"> {review.service}</p> )}
-                    {review.author && ( <p class="text--small mt-8">{review.author}</p> )}
+                    {review.author && ( <p class="text--small mt-16">{review.author}</p> )}
                   </div>
                 </div>
               ))}
