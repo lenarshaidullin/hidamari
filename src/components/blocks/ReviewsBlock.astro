@@ -6,11 +6,9 @@ interface Review {
   title?: string;
   description: string;
 
-  rate?: string;
   author?: string;
-  source?: string;
   sourceLink?: string;
-  portfolioLink?: string;
+  sourceText?: string;
 }
 
 interface Props {
@@ -89,7 +87,8 @@ const {
     <div class="row mt-48">
       <div class="c-12">
         <div class="buttons-wrapper buttons-wrapper--jcc">
-          <a href="#" class="button button--outlined--gray" target="_blank">Все отзывы</a>
+          <a href="#" class="button button--filled--white">Оставить отзыв</a>
+          <a href="#" class="button button--outlined--gray" target="_blank">Все отзывы</a>     
         </div>
       </div>
     </div>
@@ -106,8 +105,8 @@ const {
         pagination: { el: '.swiper-pagination', clickable: true },
         breakpoints: {
           0:    { slidesPerView: 1.1, slidesPerGroup: 1, spaceBetween: 8 },
-          767:  { slidesPerView: 2.3, slidesPerGroup: 2, spaceBetween: 8 },
-          1041: { slidesPerView: 2.6, slidesPerGroup: 2, spaceBetween: 8 },
+          767:  { slidesPerView: 2.1, slidesPerGroup: 2, spaceBetween: 8 },
+          1041: { slidesPerView: 3.1, slidesPerGroup: 3, spaceBetween: 8 },
         },
       });
     });
