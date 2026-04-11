@@ -1,19 +1,14 @@
+
 /**
  * Плавная прокрутка к якорям
  */
-document.querySelectorAll('.scroll-to').forEach((button) => {
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    const targetId = button.getAttribute('href');
-    const targetElement = document.querySelector(targetId);
-
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.scroll-to').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(btn.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   });
 });
 
@@ -21,17 +16,13 @@ document.querySelectorAll('.scroll-to').forEach((button) => {
  * Замена кавычек "" на «ёлочки»
  */
 (function replaceQuotes() {
-  function processNode(node) {
+  const processNode = (node) => {
     if (node.nodeType === Node.TEXT_NODE) {
       node.nodeValue = node.nodeValue.replace(/"([^"]*)"/g, '«$1»');
-    } else if (node.nodeType === Node.ELEMENT_NODE) {
-      const tagName = node.nodeName.toUpperCase();
-      if (tagName !== 'SCRIPT' && tagName !== 'STYLE') {
-        node.childNodes.forEach(processNode);
-      }
+    } else if (node.nodeType === Node.ELEMENT_NODE && !['SCRIPT', 'STYLE'].includes(node.nodeName)) {
+      node.childNodes.forEach(processNode);
     }
-  }
-
+  };
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => processNode(document.body));
   } else {
@@ -44,29 +35,38 @@ document.querySelectorAll('.scroll-to').forEach((button) => {
  * Исключает: .header, .main-nav, .footer
  */
 (function addNonBreakingSpaces() {
-  const excludedSelectors = ['.header', '.main-nav', '.footer'];
-
-  function isExcluded(node) {
-    return excludedSelectors.some((selector) => node.closest(selector));
-  }
-
-  const walker = document.createTreeWalker(
-    document.body,
-    NodeFilter.SHOW_TEXT,
-    null,
-    false
-  );
-
+  const excluded = ['.header', '.main-nav', '.footer'];
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
   let node;
   while ((node = walker.nextNode())) {
     const parent = node.parentNode;
-    if (parent.nodeType !== Node.ELEMENT_NODE || isExcluded(parent)) {
-      continue;
+    if (parent.nodeType === Node.ELEMENT_NODE && !excluded.some((s) => parent.closest(s))) {
+      node.nodeValue = node.nodeValue.replace(/\s+(и|в|на|с|по|для|к|от|за|без|при|о|об|а|«На|«на)\s+/g, ' $1\u00A0');
     }
-
-    node.nodeValue = node.nodeValue.replace(
-      /\s+(и|в|на|с|по|для|к|от|за|без|при|о|об|а|«На|«на)\s+/g,
-      ' $1\u00A0'
-    );
   }
+})();
+
+/**
+ * Выравнивание ширины кнопок по самой широкой
+ * Применяется к контейнерам с классом .buttons-wrapper--ew
+ */
+(function equalizeButtonWidths() {
+  const equalize = () => {
+    document.querySelectorAll('.buttons-wrapper--ew').forEach((wrap) => {
+      const btns = wrap.querySelectorAll('.button');
+      if (!btns.length) return;
+      btns.forEach((b) => {
+        b.style.width = '';
+        b.style.justifyContent = 'center';
+      });
+      const maxW = Math.ceil(Math.max(...[...btns].map((b) => b.getBoundingClientRect().width)));
+      btns.forEach((b) => (b.style.width = `${maxW}px`));
+    });
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', equalize);
+  } else {
+    equalize();
+  }
+  window.addEventListener('resize', equalize);
 })();

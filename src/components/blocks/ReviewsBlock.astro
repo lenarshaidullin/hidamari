@@ -4,7 +4,7 @@ import '../../styles/blocks/_reviews-block.scss';
 interface Review {
   images?: string[];
   title?: string;
-  description: string;
+  description?: string;
 
   author?: string;
   sourceLink?: string;
@@ -68,7 +68,9 @@ const {
                   <div class="card card--with-wrapper">
                     {review.images && (
                       <div class="card__images-wrapper mb-24">
-                         {review.images?.map(img => ( <img src={img} alt={review.title} /> ))}
+                        {review.images?.map(img => ( 
+                          <img src={img} alt={review.title} /> 
+                        ))}
                       </div>
                     )}
                     {review.title &&( <div class="title-h5 mb-16">{review.title}</div> )}
@@ -86,7 +88,7 @@ const {
 
     <div class="row mt-48">
       <div class="c-12">
-        <div class="buttons-wrapper buttons-wrapper--jcc">
+        <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--ew">
           <a href="#" class="button button--filled--white">Оставить отзыв</a>
           <a href="#" class="button button--outlined--gray" target="_blank">Все отзывы</a>     
         </div>
