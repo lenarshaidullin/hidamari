@@ -1,0 +1,49 @@
+---
+import '../../styles/blocks/_header-block-type-2.scss';
+
+interface Props {
+  id?: string;
+  class?: string;
+
+  subtitle?: string;
+  title?: string;
+  description?: string;
+}
+
+const { 
+  id, 
+  class: className = '', 
+
+  subtitle,
+  title, 
+  description
+} = Astro.props;
+
+---
+
+<div class={`header-block-type-2 ${className}`} id={id || undefined}>
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="c-12">
+          {subtitle &&(
+            <div class="subtitle text--center mb-16">
+              <slot name="subtitle">{subtitle}</slot>
+            </div>
+          )}
+          {title &&(
+            <h1 class="title-h1 text--center">
+              <slot name="title">{title}</slot>
+            </h1>
+          )}
+          {description &&(
+            <div class="mw-wrapper mw-wrapper--center mt-16">
+              <p class="text--center">{description}</p>
+            </div>
+          )}
+          <slot/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

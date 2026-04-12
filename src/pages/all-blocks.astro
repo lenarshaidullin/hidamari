@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeaderBlockType1 from '../components/blocks/HeaderBlockType1.astro';
+import HeaderBlockType2 from '../components/blocks/HeaderBlockType2.astro';
 import CardsBlockType1 from '../components/blocks/CardsBlockType1.astro';
 import CardsBlockType2 from '../components/blocks/CardsBlockType2.astro';
 import BlockquoteBlockType1 from '../components/blocks/BlockquoteBlockType1.astro';
@@ -16,10 +17,20 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
 
 <BaseLayout title="Все блоки">
 
-  <pre>
-    HeaderBlockType1.astro
-    _header-block-type-1.scss
-  </pre>
+  <HeaderBlockType2
+    id=""
+    class="mb-64 mb-sm-96 mb-md-128"
+
+    subtitle="Столярная мастерская"
+    title="Предметы ручной работы, которые хочется оставить рядом надолго"
+    description="Уникальные изделия из массива дерева ручной работы. Натуральные материалы, внимание к деталям и безупречное качество"
+    >
+    <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--ew mt-48">
+      <a href="#izdeliya" class="button scroll-to">Выбрать изделие</a>
+      <a href="#otzyvy" class="button button--outlined--gray scroll-to">Смотреть отзвыв</a>
+    </div>
+  </HeaderBlockType2>
+
   <HeaderBlockType1
     id="id"
     class="class"
