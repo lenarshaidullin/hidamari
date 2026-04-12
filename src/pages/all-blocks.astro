@@ -14,22 +14,54 @@ import GalleryBlockType1 from '../components/blocks/GalleryBlockType1.astro';
 import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
 ---
 
-<BaseLayout title="Главная">
+<BaseLayout title="Все блоки">
 
+  <pre>
+    HeaderBlockType1.astro
+    _header-block-type-1.scss
+  </pre>
   <HeaderBlockType1
-    id=""
-    class=""
+    id="id"
+    class="class"
 
-    subtitle="Столярная мастерская"
-    title="Предметы ручной работы, которые хочется оставить рядом надолго"
-    description="Уникальные изделия из массива дерева ручной работы. Натуральные материалы, внимание к деталям и безупречное качество"
+    subtitle="Подзаголовок"
+    title="Основной заголовок секции"
+    description="Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле."
     >
     <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--ew mt-48">
-      <a href="#izdeliya" class="button scroll-to">Выбрать изделие</a>
-      <a href="#otzyvy" class="button button--outlined--gray scroll-to">Смотреть отзвыв</a>
+      <a href="#" class="button">Кнопка 1</a>
+      <a href="#" class="button button--outlined--gray">Кнопка 2</a>
     </div>
   </HeaderBlockType1>
+  
+  <pre>
+    CardsBlockType2.astro
+    _cards-block-type-2.scss
+  </pre>
+  <CardsBlockType2
+    id=""
+    class="pt-64 pt-sm-96 pt-md-128"
 
+    subtitle=""
+    title=""
+    description=""
+
+    cards={[
+      {
+        image: "/images/placeholders/placeholder-1000x1000.png",
+        title: "Что такое Hidamari?",
+        description: "Hidamari — это японское слово, означающее солнечное пятно на полу. Это тихое уютное ощущение, которое хочется продлить. Такими мы создаём наши изделия: не кричащими, не требующими внимания, а просто тёплыми местами в вашем доме. Мы верим, что в мире цифрового шума важно окружать себя подлинными вещами. Такими, которые стареют красиво, приобретая благородную патину времени и сохраняя историю прикосновений.",
+        link: "#",
+        linkText: "О проекте"
+      },
+    ]}
+    >
+  </CardsBlockType2>
+
+  <pre>
+    CardsBlockType3.astro
+    _cards-block-type-3.scss
+  </pre>
   <CardsBlockType3
     id=""
     class="pt-64 pt-sm-96 pt-md-128"
@@ -72,25 +104,7 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
   >
   </CardsBlockType3>
 
-  <CardsBlockType2
-    id=""
-    class="pt-64 pt-sm-96 pt-md-128"
-
-    subtitle=""
-    title=""
-    description=""
-
-    cards={[
-      {
-        image: "/images/placeholders/placeholder-1000x1000.png",
-        title: "Что такое Hidamari?",
-        description: "Hidamari — это японское слово, означающее солнечное пятно на полу. Это тихое уютное ощущение, которое хочется продлить. Такими мы создаём наши изделия: не кричащими, не требующими внимания, а просто тёплыми местами в вашем доме. Мы верим, что в мире цифрового шума важно окружать себя подлинными вещами. Такими, которые стареют красиво, приобретая благородную патину времени и сохраняя историю прикосновений.",
-        link: "#",
-        linkText: "О проекте"
-      },
-    ]}
-    >
-  </CardsBlockType2>
+  
 
   <CardsBlockType1
     id=""

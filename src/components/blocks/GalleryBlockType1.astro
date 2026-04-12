@@ -3,6 +3,7 @@ import '../../styles/blocks/_gallery-block-type-1.scss';
 
 interface Image {
   url: string;
+  description?: string;
 }
 
 interface Props {
@@ -68,7 +69,8 @@ const {
           <div class="swiper-wrapper">
             {images.map((image, index) => (
               <div class="swiper-slide">
-                <img src={image.url} alt={} />
+                <img src={image.url} alt={image.description} />
+                {image.description &&( <p class="text--x-small text--center mt-8">{image.description}</p> )}
               </div>
             ))}
           </div>
