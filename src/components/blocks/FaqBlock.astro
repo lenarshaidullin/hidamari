@@ -8,7 +8,7 @@ interface FaqItem {
 
 interface Props {
   id?: string;
-  subtitle?: string;
+  pretitle?: string;
   title?: string;
   description?: string;
   faqItems: FaqItem[];
@@ -18,7 +18,7 @@ const {
   id, 
   class: className = '', 
 
-  subtitle,
+  pretitle,
   title, 
   description,
 
@@ -32,9 +32,9 @@ const {
 
     <div class="row">
       <div class="c-12 c-md-10 m-md-1">
-        {subtitle &&(
-          <div class="subtitle text--center mb-16">
-            <slot name="subtitle">{subtitle}</slot>
+        {pretitle &&(
+          <div class="pretitle text--center mb-16">
+            <slot name="pretitle">{pretitle}</slot>
           </div>
         )}
         {title &&(

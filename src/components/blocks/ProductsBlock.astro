@@ -15,7 +15,7 @@ interface Props {
   id?: string;
   class?: string;
 
-  subtitle?: string;
+  pretitle?: string;
   title?: string;
   description?: string;
 
@@ -26,7 +26,7 @@ const {
   id, 
   class: className = '', 
 
-  subtitle,
+  pretitle,
   title, 
   description,
   details,
@@ -40,9 +40,9 @@ const {
 
     <div class="row">
       <div class="c-12 c-md-10 m-md-1">
-        {subtitle &&(
-          <div class="subtitle text--center mb-16">
-            <slot name="subtitle">{subtitle}</slot>
+        {pretitle &&(
+          <div class="pretitle text--center mb-16">
+            <slot name="pretitle">{pretitle}</slot>
           </div>
         )}
         {title &&(
@@ -60,15 +60,8 @@ const {
 
     <div class={`row ${title || description ? 'mt-48' : ''}`}>
       <div class="c-12">
-        <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--gap-4 filter-buttons">
-          <div class="button button--filled--gray button--small active" data-filter="all">Все</div>
-          <div class="button button--filled--gray button--small" data-filter="polki">Полки</div>
-          <div class="button button--filled--gray button--small" data-filter="chabani">Чабани</div>
-          <div class="button button--filled--gray button--small" data-filter="stoliki-i-podnosy">Столики и подносы</div>
-          <div class="button button--filled--gray button--small" data-filter="lampy">Лампы</div>
-          <div class="button button--filled--gray button--small" data-filter="drugoe">Другое</div>
-        </div>
-        <div class="cards mt-48">
+        <slot/>
+        <div class="cards">
           {products.map((product, index) => (
             <div class="card card--with-wrapper" data-category={product.category}>
               <img src={product.image} alt={product.title} />

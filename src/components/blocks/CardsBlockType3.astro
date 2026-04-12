@@ -2,7 +2,7 @@
 import '../../styles/blocks/_cards-block-type-3.scss';
 
 interface Card {
-  subtitle?: string;
+  pretitle?: string;
   title: string;
   description: string;
   link?: string;
@@ -13,7 +13,7 @@ interface Props {
   id?: string;
   class?: string;
 
-  subtitle?: string;
+  pretitle?: string;
   title?: string;
   description?: string;
 
@@ -27,7 +27,7 @@ const {
   id, 
   class: className = '', 
 
-  subtitle,
+  pretitle,
   title, 
   description,
   link,
@@ -43,9 +43,9 @@ const {
       <div class="c-12 c-sm-5 c-md-6">
         <div class="cards">
           <div class="cards__title-wrapper">
-            {subtitle &&(
-              <div class="subtitle mb-16">
-                <slot name="subtitle">{subtitle}</slot>
+            {pretitle &&(
+              <div class="pretitle mb-16">
+                <slot name="pretitle">{pretitle}</slot>
               </div>
             )}
             {title &&(
@@ -71,7 +71,7 @@ const {
           <div class="cards__cards-wrapper">
             {cards.map((card, index) => (
               <div class="card card--with-wrapper">
-                {card.subtitle &&( <div class="subtitle mb-16">{card.subtitle}</div> )}
+                {card.pretitle &&( <div class="pretitle mb-16">{card.pretitle}</div> )}
                 <div class="title-h4">{card.title}</div>
                 <p class="mt-16">{card.description}</p>
                 {card.link &&(
