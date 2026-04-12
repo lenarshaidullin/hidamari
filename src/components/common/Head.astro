@@ -1,93 +1,78 @@
 ---
-type Props = {
+import { SEO_DEFAULTS } from '../../data/data.ts';
+
+export interface Props {
   title: string;
   description?: string;
   canonical?: string;
-  css?: string | string[];
-
-  noindex?: boolean;
-
-  ogType?: "website" | "article";
+  index?: boolean;
   ogImage?: string;
   ogImageAlt?: string;
-  siteName?: string;
-
-  twitterCard?: "summary" | "summary_large_image";
-
   jsonLd?: Record<string, any> | Record<string, any>[];
-};
+}
 
 const {
   title,
   description,
   canonical,
-  css,
-
-  noindex = true,
-
-  ogType = "website",
+  index = SEO_DEFAULTS.index,
   ogImage,
   ogImageAlt,
-  siteName = "Название сайта",
+  jsonLd
+} = Astro.props;
 
-  twitterCard = ogImage ? "summary_large_image" : "summary",
+const siteName = SEO_DEFAULTS.siteName;
+const ogLocale = SEO_DEFAULTS.ogLocale;
+const fallbackOgImage = SEO_DEFAULTS.defaultOgImage;
 
-  jsonLd,
-} = Astro.props as Props;
-
-const ogLocale = "ru_RU";
+const finalOgImage = ogImage ?? fallbackOgImage;
+const finalOgImageAlt = ogImageAlt ?? description;
 const autoCanonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
 const canonicalUrl = canonical ?? autoCanonical;
-const ogImageUrl = ogImage && Astro.site ? new URL(ogImage, Astro.site).toString() : ogImage;
+const ogImageUrl = finalOgImage && Astro.site ? new URL(finalOgImage, Astro.site).toString() : finalOgImage;
 const desc = description?.trim();
-const cssList = Array.isArray(css) ? css : (css ? [css] : []);
+const robots = index ? "index, follow" : "noindex, nofollow";
+const twitterCard = finalOgImage === fallbackOgImage && !ogImage ? SEO_DEFAULTS.twitterCardFallback : "summary_large_image";
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff" />
 
-<!-- Фавиконка -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-<!-- Основные параметры -->
 <title>{title}</title>
 {desc && <meta name="description" content={desc} />}
 {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+<meta name="robots" content={robots} />
 
-<!-- Настройки индексирования -->
-<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
-
-<!-- Шрифты -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
-<!-- Плагины -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
-
-<!-- Стили -->
-<link rel="stylesheet" href="/css/styles.min.css" />
-{cssList.map((href) => <link rel="stylesheet" href={href} />)}
-
-<!-- Open Graph -->
 <meta property="og:title" content={title} />
 {desc && <meta property="og:description" content={desc} />}
 {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
-<meta property="og:type" content={ogType} />
+<meta property="og:type" content="website" />
 <meta property="og:locale" content={ogLocale} />
 <meta property="og:site_name" content={siteName} />
 {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
-{ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
+{finalOgImageAlt && <meta property="og:image:alt" content={finalOgImageAlt} />}
 
-<!-- Twitter -->
 <meta name="twitter:card" content={twitterCard} />
 <meta name="twitter:title" content={title} />
 {desc && <meta name="twitter:description" content={desc} />}
 {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
 
-<!-- JSON-LD -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+
+<link rel="stylesheet" href="/css/styles.min.css" />
+
 {jsonLd && (
   <script type="application/ld+json">
     {JSON.stringify(jsonLd)}

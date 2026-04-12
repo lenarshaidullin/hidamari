@@ -15,7 +15,12 @@ import GalleryBlockType1 from '../components/blocks/GalleryBlockType1.astro';
 import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
 ---
 
-<BaseLayout title="Все блоки">
+<BaseLayout 
+  title="my title" 
+  description="my description"
+  index={false}
+  ogImage="my image link"
+  >
 
   <HeaderBlockType1
     id="id"
