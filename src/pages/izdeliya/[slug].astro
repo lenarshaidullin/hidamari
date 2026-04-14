@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { products } from '../../data/izdeliya';
+
+export async function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product }
+  }));
+}
+
+const { product } = Astro.props;
+---
+
+<BaseLayout
+  title={product.title}
+  description={product.description}
+  canonical={`/izdeliya/${product.slug}/`}
+  index={product.index}
+  ogImage={product.ogImage || product.image}
+  ogImageAlt={product.title}
+  >
+
+  <div class="container pt-64">
+    <div class="container">
+      <div class="row">
+        <div class="c-12">
+          <h1 class="title-h1">{product.title}</h1>
+          {product.image &&(
+            <img src={product.image} alt={product.title} />
+          )}
+          {product.price && (
+            <div class="pretitle">{product.price}</div>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</BaseLayout>

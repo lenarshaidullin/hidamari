@@ -9,6 +9,8 @@ interface Product {
   description?: string;
   details?: string;
   price?: string;
+
+  link?: string;
 }
 
 interface Props {
@@ -69,6 +71,11 @@ const {
               {product.description &&( <p class="mt-16">{product.description}</p> )}
               {product.details &&( <p class="text--small mt-16" style="white-space: pre-line">{product.details}</p> )}
               {product.price &&( <div class="title-h5 mt-16">{product.price}</div> )}
+              {product.link &&(
+                <div class="buttons-wrapper mt-24">
+                  <a href={product.link} class="button button--small button--filled--white">Подробнее</a>
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -1,12 +1,8 @@
 @use '_tokens' as *;
 
-//
-
 @media (max-width: $sm) {
   .hidden-xs { display: none; }
 }
-
-//
 
 .pt-0 	{ padding-top: 0; }
 .pt-2   { padding-top: 2px; }
@@ -114,6 +110,20 @@
 .text--center { text-align: center; }
 .text--left 	 { text-align: left; }
 
+.border-top { border-top: 1px solid $gray-12; }
+.border-bottom { border-bottom: 1px solid $gray-12; }
+
+.card {
+  &--with-wrapper {
+    padding: 24px;
+    background: $gray-8;
+    border: 1px solid $gray-12;
+    border-radius: 16px;
+    &:hover {
+      border: 1px solid $gray-16;
+    }
+  }
+}
 
 @media(min-width: $sm) {
 
@@ -327,19 +337,4 @@
   .text--md-center { text-align: center; }
   .text--md-left 	 { text-align: left; }
 
-}
-
-.border-top { border-top: 1px solid $gray-12; }
-.border-bottom { border-bottom: 1px solid $gray-12; }
-
-.card {
-  &--with-wrapper {
-    padding: 24px;
-    background: $gray-8;
-    border: 1px solid $gray-12;
-    border-radius: 16px;
-    &:hover {
-      border: 1px solid $gray-16;
-    }
-  }
 }
