@@ -1,6 +1,5 @@
 ---
-import { SEO_DEFAULTS } from '../../data/data.ts';
-
+// src/components/Head.astro
 export interface Props {
   title: string;
   description?: string;
@@ -13,26 +12,30 @@ export interface Props {
 
 const {
   title,
-  description,
+  description = '',
   canonical,
-  index = SEO_DEFAULTS.index,
+  index = false,
   ogImage,
   ogImageAlt,
   jsonLd
 } = Astro.props;
 
-const siteName = SEO_DEFAULTS.siteName;
-const ogLocale = SEO_DEFAULTS.ogLocale;
-const fallbackOgImage = SEO_DEFAULTS.defaultOgImage;
+// Дефолты
+const siteName = "Название сайта";
+const defaultOgImage = "/images/placeholders/placeholder-1200x640.png";
+const ogLocale = "ru_RU";
 
-const finalOgImage = ogImage ?? fallbackOgImage;
-const finalOgImageAlt = ogImageAlt ?? description;
-const autoCanonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
-const canonicalUrl = canonical ?? autoCanonical;
-const ogImageUrl = finalOgImage && Astro.site ? new URL(finalOgImage, Astro.site).toString() : finalOgImage;
-const desc = description?.trim();
+// Хелпер: превращает путь в абсолютный URL, если есть Astro.site
+const toAbsolute = (path?: string) => {
+  if (!path) return undefined;
+  if (path.startsWith('http')) return path; // уже абсолютный
+  return Astro.site ? new URL(path, Astro.site).href : path;
+};
+
+const finalOgImage = ogImage || defaultOgImage;
+const canonicalUrl = toAbsolute(canonical || Astro.url.pathname);
+const ogImageUrl = toAbsolute(finalOgImage)!; // ! т.к. у defaultOgImage всегда есть значение
 const robots = index ? "index, follow" : "noindex, nofollow";
-const twitterCard = finalOgImage === fallbackOgImage && !ogImage ? SEO_DEFAULTS.twitterCardFallback : "summary_large_image";
 ---
 
 <meta charset="utf-8" />
@@ -45,42 +48,35 @@ const twitterCard = finalOgImage === fallbackOgImage && !ogImage ? SEO_DEFAULTS.
 
 <!-- SEO -->
 <title>{title}</title>
-{desc && <meta name="description" content={desc} />}
+<meta name="description" content={description} />
 {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 <meta name="robots" content={robots} />
 
+<!-- Open Graph -->
 <meta property="og:title" content={title} />
-{desc && <meta property="og:description" content={desc} />}
+<meta property="og:description" content={description} />
 {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
 <meta property="og:type" content="website" />
 <meta property="og:locale" content={ogLocale} />
 <meta property="og:site_name" content={siteName} />
-
-{ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+<meta property="og:image" content={ogImageUrl} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="640" />
 
-<meta name="twitter:card" content={twitterCard} />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
-{desc && <meta name="twitter:description" content={desc} />}
-{ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
 
-<!-- Google Fonts -->
+<!-- Fonts & Styles -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
-<!-- Plugins -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
-
-<!-- Styles -->
 <link rel="stylesheet" href="/css/styles.min.css" />
 
-{jsonLd && (
-  <script type="application/ld+json">
-    {JSON.stringify(jsonLd)}
-  </script>
-)}
+{jsonLd && <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>}

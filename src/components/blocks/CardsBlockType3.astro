@@ -2,6 +2,7 @@
 import '../../styles/blocks/_cards-block-type-3.scss';
 
 interface Card {
+  image?: string;
   pretitle?: string;
   title: string;
   description: string;
@@ -71,6 +72,11 @@ const {
           <div class="cards__cards-wrapper">
             {cards.map((card, index) => (
               <div class="card card--with-wrapper">
+                {card.image &&(
+                  <div class="card__image-wrapper mb-16">
+                    <img src={card.image} alt={card.title} />
+                  </div>
+                )}
                 {card.pretitle &&( <div class="pretitle mb-16">{card.pretitle}</div> )}
                 <div class="title-h4">{card.title}</div>
                 <p class="mt-16">{card.description}</p>

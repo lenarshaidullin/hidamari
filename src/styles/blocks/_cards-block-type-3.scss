@@ -10,6 +10,13 @@
       gap: 8px;
     }
   }
+  .card {
+    &__image-wrapper {
+      img {
+        border-radius: 16px;
+      }
+    }
+  }
 }
 
 @media(min-width: $sm) {
