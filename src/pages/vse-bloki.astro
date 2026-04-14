@@ -18,8 +18,8 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
 <BaseLayout 
   title="Все блоки" 
   description="Описание страницы"
-  canonical="/vse-bloki/"
   index={false}
+  canonical="/vse-bloki/"
   ogImage=""
   >
 
@@ -50,6 +50,33 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
       <a href="#" class="button button--outlined--gray">Кнопка 2</a>
     </div>
   </HeaderBlockType2>
+
+  <PriceTableBlock
+    id=""
+    class="pt-64 pt-sm-96 pt-md-128"
+
+    pretitle="Текст перед заголовком"
+    title="Таблица с ценами"
+    description="Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле"
+
+    items ={[
+      {
+        title: "Заголовок 1",
+        description: "Описание услуги",
+        price: "1000₽",
+      },
+      {
+        title: "Заголовок 2",
+        price: "2000₽",
+      },
+      {
+        title: "Заголовок 3",
+        description: "Описание услуги",
+        price: "3000₽",
+      },
+    ]}
+  >
+  </PriceTableBlock>
 
   <CardsBlockType1
     id=""
@@ -243,10 +270,10 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
     ]}
     >
     <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--gap-4 filter-buttons mb-48">
-      <div class="button button--filled--gray button--small active" data-filter="all">Все</div>
-      <div class="button button--filled--gray button--small" data-filter="cat1">Категория 1</div>
-      <div class="button button--filled--gray button--small" data-filter="cat2">Категория 2</div>
-      <div class="button button--filled--gray button--small" data-filter="cat3">Категория 3</div>
+      <div class="button button--small button--outlined--gray active" data-filter="all">Все</div>
+      <div class="button button--small button--outlined--gray" data-filter="cat1">Категория 1</div>
+      <div class="button button--small button--outlined--gray" data-filter="cat2">Категория 2</div>
+      <div class="button button--small button--outlined--gray" data-filter="cat3">Категория 3</div>
     </div>
   </ProductsBlock>
 

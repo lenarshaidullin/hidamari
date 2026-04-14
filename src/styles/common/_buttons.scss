@@ -55,23 +55,12 @@
     color: $white;
   }
 
-  &--filled--gray {
-    color: $white;
-    background: $gray-16;
-    &:hover {
-      background: $gray-20;
-    }
-    &.active {
-      color: $gray-4;
-      background: $gray-92;
-    }
-  }
-
   &--outlined--gray {
     color: $gray-52;
     background: transparent;
     border: 1px solid $gray-52;
-    &:hover {
+    &:hover,
+    &.active {
       color: $white;
       background: transparent;
       border-color: $white;
