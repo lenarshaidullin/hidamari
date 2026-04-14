@@ -1,9 +1,52 @@
-<header class="header pt-24 pb-24">
+<header class="header">
   <div class="container">
     <div class="row">
       <div class="c-12">
-        скоро тут будет меню
+        <div class="nav">
+          <div class="nav__logo">
+            <a href="/">hidamari</a>
+          </div>
+          <div class="nav__links-wrapper">
+            <div class="nav__links">
+              <a href="#">О проекте</a>
+              <a href="#">Коллекция</a>
+              <a href="#">Портфолио</a>
+              <a href="#">Отзывы</a>
+            </div>
+          </div>
+          <div class="nav__buttons">
+
+            <div class="buttons-wrapper">
+              <a href="#" class="button button--icon button--icon--telegram"></a>
+              <a href="#" class="button button--icon button--icon--max"></a>
+            </div>
+
+            <div class="hamburger">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </header>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+    let hamburger = document.querySelector('.hamburger');
+    let linksWrapper = document.querySelector('.nav__links-wrapper');
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('active');
+      linksWrapper.classList.toggle('active');
+    });
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.nav__links-wrapper') && !event.target.closest('.hamburger')) {
+        linksWrapper.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
+    });
+  });
+</script>

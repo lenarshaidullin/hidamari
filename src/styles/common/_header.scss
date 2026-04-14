@@ -1,1 +1,126 @@
 @use '_tokens' as *;
+
+.header {
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    position: relative;
+
+    &__logo {
+      a {
+        color: $white;
+        
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+
+    &__links-wrapper {
+      display: none;
+
+      position: absolute;
+      top: 78px;
+      left: 0;
+      width: 100%;
+
+      padding: 24px;
+      background: $gray-8; 
+      border: 1px solid $gray-12;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,.1);
+      z-index: 1;
+
+      &.active {
+        display: block;
+      }
+
+    }
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      a {
+        text-transform: lowercase;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+  }
+  .hamburger {
+    .line {
+      width: 30px;
+      height: 2px;
+      background: $white;
+      display: block;
+      margin: 8px auto;
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.active {
+      .line:nth-child(2) {
+        opacity: 0;
+      }
+
+      .line:nth-child(1) {
+        -webkit-transform: translateY(10px) rotate(45deg);
+        -ms-transform: translateY(10px) rotate(45deg);
+        -o-transform: translateY(10px) rotate(45deg);
+        transform: translateY(10px) rotate(45deg);
+      }
+
+      .line:nth-child(3) {
+        -webkit-transform: translateY(-10px) rotate(-45deg);
+        -ms-transform: translateY(-10px) rotate(-45deg);
+        -o-transform: translateY(-10px) rotate(-45deg);
+        transform: translateY(-10px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+@media(min-width: $sm) {
+  .header {
+    .nav {
+      &__links-wrapper {
+        display: block;
+
+        position: unset;
+        top: unset;
+        left: unset;
+        width: unset;
+
+        padding: unset;
+        background: unset;
+        border: unset;
+        border-radius: unset;
+        box-shadow: unset;
+        z-index: unset;
+      }
+      &__links {
+        flex-direction: row;
+      }
+    }
+    .hamburger {
+      display: none;
+    }
+  }
+}
+
