@@ -12,6 +12,7 @@ export interface Product {
 }
 
 export const products: Product[] = [
+  /*
   {
     category: "",
     image: "/images/placeholders/placeholder-1000x1000.png",
@@ -29,6 +30,7 @@ export const products: Product[] = [
     stock: "В наличии",
     slug: "test-1",
   },
+  */
   {
     category: "polki",
     image: "/images/izdeliya/polka-malaya-1.jpg",
@@ -45,6 +47,7 @@ export const products: Product[] = [
     stock: "В наличии",
     slug: "polka-malaya",
   },
+  /*
   {
     category: "polki",
     image: "/images/placeholders/placeholder-1000x1000.png",
@@ -56,10 +59,17 @@ export const products: Product[] = [
     stock: "В наличии",
     slug: "polka-3x3",
   },
+  */
   {
     category: "polki",
-    image: "/images/placeholders/placeholder-1000x1000.png",
-    images: [],
+    image: "/images/izdeliya/polka-3x4-1.jpg",
+    images: [
+      "/images/izdeliya/polka-3x4-2.jpg",
+      "/images/izdeliya/polka-3x4-3.jpg",
+      "/images/izdeliya/polka-3x4-4.jpg",
+      "/images/izdeliya/polka-3x4-5.jpg",
+      "/images/izdeliya/polka-3x4-6.jpg",
+    ],
     title: "Полка 3х4",
     description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.",
     details: "Материал: ясень \nРазмеры: 510х385х100мм \nПокрытие: натуральное масло",
@@ -91,8 +101,11 @@ export const products: Product[] = [
   },
   {
     category: "polki",
-    image: "/images/placeholders/placeholder-1000x1000.png",
-    images: [],
+    image: "/images/izdeliya/polka-kastom-1-1.jpg",
+    images: [
+      "/images/izdeliya/polka-kastom-1-2.jpg",
+      "/images/izdeliya/polka-kastom-1-3.jpg",
+    ],
     title: "Полка «Кастом 1»",
     description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.",
     details: "Материал: ясень \nРазмеры: 810х395х100мм \nТолщина контура: 12мм \nПокрытие: натуральное масло \n*возможна установка петель для крепления на стену",
@@ -213,8 +226,11 @@ export const products: Product[] = [
   },
   {
     category: "drugoe",
-    image: "/images/placeholders/placeholder-1000x1000.png",
-    images: [],
+    image: "/images/izdeliya/podstavka-dlya-nozhey-1.jpg",
+    images: [
+      "/images/izdeliya/podstavka-dlya-nozhey-2.jpg",
+      "/images/izdeliya/podstavka-dlya-nozhey-3.jpg",
+    ],
     title: "Подставка для ножей",
     description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.",
     details: "Материал: дуб \nРазмеры: 100х100х225мм \nПокрытие: натуральное масло",
@@ -224,12 +240,18 @@ export const products: Product[] = [
   },
   {
     category: "drugoe",
-    image: "/images/placeholders/placeholder-1000x1000.png",
-    images: [],
+    image: "/images/izdeliya/stakanchik-1.jpg",
+    images: [
+      "/images/izdeliya/stakanchik-2.jpg",
+      "/images/izdeliya/stakanchik-3.jpg",
+      "/images/izdeliya/stakanchik-4.jpg",
+      "/images/izdeliya/stakanchik-5.jpg",
+      "/images/izdeliya/stakanchik-6.jpg",
+    ],
     title: "Стаканчик",
     description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.",
     details: "Материал: дуб \nРазмеры: 75х75х120мм \nПокрытие: натуральное масло",
-    price: "800 ₽",
+    price: "900 ₽",
     stock: "В наличии",
     slug: "stakanchik",
   },

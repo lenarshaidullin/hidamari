@@ -39,6 +39,7 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
     </div>
   </HeaderBlockType1>
 
+  <!-- 
   <CardsBlockType3
     id=""
     class="pt-64 pt-sm-96 pt-md-128"
@@ -81,6 +82,7 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
     ]}
   >
   </CardsBlockType3>
+  -->
 
   <CardsBlockType2
     id=""
@@ -101,6 +103,39 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
     ]}
     >
   </CardsBlockType2>
+
+  <ProductsBlock
+    id="izdeliya"
+    class="pt-64 pt-sm-96 pt-md-128"
+
+    pretitle="Коллекция"
+    title="Изделия которые мы делаем с любовью"
+    description=""
+    
+    products={products}
+    >
+    <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--gap-4 filter-buttons mb-48">
+      <div class="button button--small button--outlined--gray  active" data-filter="all">Все</div>
+      <div class="button button--small button--outlined--gray" data-filter="polki">Полки</div>
+      <div class="button button--small button--outlined--gray" data-filter="chabani">Чабани</div>
+      <div class="button button--small button--outlined--gray" data-filter="stoliki-i-podnosy">Столики и подносы</div>
+      <div class="button button--small button--outlined--gray" data-filter="lampy">Лампы</div>
+      <div class="button button--small button--outlined--gray" data-filter="drugoe">Другое</div>
+    </div>
+  </ProductsBlock>
+
+  <CtaBlockType1
+    id=""
+    class="pt-64 pt-sm-96 pt-md-128 pb-64 pb-sm-96 pb-md-128 mt-64 mt-sm-96 mt-md-128"
+
+    pretitle="Есть идея?"
+    title="Сделайте индивидуальный заказ"
+    description="Иногда готовое изделие — не то, что нужно. Пространство требует своих размеров. Человек — своих ощущений. Настроение — своей формы. В Hidamari мы оставляем место для диалога. Свяжитесь с нами и мы создадим предмет, который ляжет в жизнь естественно, как солнечное пятно на полу"
+    >
+    <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--ew mt-24">
+      <a href="#" class="button">Обсудить заказ</a>
+    </div>
+  </CtaBlockType1>
 
   <CardsBlockType1
     id=""
@@ -221,26 +256,6 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
     >
   </CardsBlockType2>
 
-  <ProductsBlock
-    id="izdeliya"
-    class="pt-64 pt-sm-96 pt-md-128"
-
-    pretitle="Коллекция"
-    title="Изделия которые мы делаем с любовью"
-    description=""
-    
-    products={products}
-    >
-    <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--gap-4 filter-buttons mb-48">
-      <div class="button button--small button--outlined--gray  active" data-filter="all">Все</div>
-      <div class="button button--small button--outlined--gray" data-filter="polki">Полки</div>
-      <div class="button button--small button--outlined--gray" data-filter="chabani">Чабани</div>
-      <div class="button button--small button--outlined--gray" data-filter="stoliki-i-podnosy">Столики и подносы</div>
-      <div class="button button--small button--outlined--gray" data-filter="lampy">Лампы</div>
-      <div class="button button--small button--outlined--gray" data-filter="drugoe">Другое</div>
-    </div>
-  </ProductsBlock>
-
   <ReviewsBlock
     id="otzyvy"
     class="pt-64 pt-sm-96 pt-md-128"
@@ -306,20 +321,6 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
     ]}
     >
   </ReviewsBlock>
-
-  <CtaBlockType1
-    id=""
-    class="pt-64 pt-sm-96 pt-md-128 pb-64 pb-sm-96 pb-md-128 mt-64 mt-sm-96 mt-md-128"
-
-    pretitle="Как сделать"
-    title="Индивидуальный заказ"
-    description="Иногда готовое изделие — не то, что нужно. Пространство требует своих размеров. Человек — своих ощущений. Настроение — своей формы. В Hidamari мы оставляем место для диалога. Расскажите нам о своём доме, о ритуале, о том, чего не хватает — и мы создадим предмет, который ляжет в жизнь естественно, как солнечное пятно на полу."
-    >
-    <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--ew mt-24">
-      <a href="#" class="button">Обсудить заказ</a>
-      <a href="#" class="button button--outlined--gray">Портфолио</a>
-    </div>
-  </CtaBlockType1>
 
   <FaqBlock
     id=""
