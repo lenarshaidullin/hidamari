@@ -1,0 +1,24 @@
+@use '_tokens' as *;
+
+.product {
+  &-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    &__image-wrapper {
+      img {
+        border-radius: 16px;
+      }
+    }
+  }
+}
+
+@media(min-width: $md) {
+  .product {
+    &-header {
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+  }
+}

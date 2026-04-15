@@ -11,27 +11,32 @@ export async function getStaticPaths() {
 
 const { product } = Astro.props;
 ---
-
-<BaseLayout
+<BaseLayout 
   title={product.title}
   description={product.description}
   canonical={`/izdeliya/${product.slug}/`}
-  index={product.index}
-  ogImage={product.ogImage || product.image}
-  ogImageAlt={product.title}
   >
 
-  <div class="container pt-64">
-    <div class="container">
+  <div class="product">
+    <div class="container pt-64">
       <div class="row">
         <div class="c-12">
-          <h1 class="title-h1">{product.title}</h1>
-          {product.image &&(
-            <img src={product.image} alt={product.title} />
-          )}
-          {product.price && (
-            <div class="pretitle">{product.price}</div>
-          )}
+          <a href="/izdeliya/">Назад</a>
+          <div class="product-header mt-48">
+            <div class="product-header__image-wrapper">
+              <img src={product.image} alt={product.title} />
+            </div>
+            <div class="product-header__content-wrapper">
+              <h1 class="title-h1">{product.title}</h1>
+              {product.description && ( <p class="mt-16">{product.description}</p> )}
+              {product.details &&( <p class="text--small mt-16" style="white-space: pre-line">{product.details}</p> )}
+              {product.stock && ( <p class="mt-16">{product.stock}</p> )}
+              {product.price && ( <p class="pretitle mt-16">{product.price}</p> )}
+              <div class="buttons-wrapper mt-48">
+                <a href="#" class="button button--filled--white">Купить</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

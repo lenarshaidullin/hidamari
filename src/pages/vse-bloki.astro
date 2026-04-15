@@ -239,8 +239,9 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
 
     pretitle="Текст перед заголовком"
     title="Товары"
-    description="Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле",
+    description="Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле"
 
+    linkPrefix="/izdeliya"
     products={[
       {
         category: "cat1",
@@ -248,8 +249,9 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
         title: "Название товара (категория 1)",
         description: "Описание товара",
         details: "Детали",
+        oldPrice: "2000 ₽",
         price: "1000 ₽",
-        link: "/izdeliya/test/"
+        slug: "test-1"
       },
       {
         category: "cat2",
@@ -257,7 +259,8 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
         title: "Название товара (категория 2)",
         description: "Описание товара",
         details: "Детали",
-        price: "2000 ₽"
+        price: "2000 ₽",
+        slug: ""
       },
       {
         category: "cat3",
@@ -265,11 +268,11 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
         title: "Название товара (категория 3)",
         description: "Описание товара",
         details: "Детали",
-        price: "3000 ₽"
-      },
-      
+        price: "3000 ₽",
+        slug: ""
+      }
     ]}
-    >
+  >
     <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--gap-4 filter-buttons mb-48">
       <div class="button button--small button--outlined--gray active" data-filter="all">Все</div>
       <div class="button button--small button--outlined--gray" data-filter="cat1">Категория 1</div>

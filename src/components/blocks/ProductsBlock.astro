@@ -1,58 +1,46 @@
 ---
 import '../../styles/blocks/_products-block.scss';
-
-interface Product {
-  category: string;
-  image: string;
-  title: string;
-
-  description?: string;
-  details?: string;
-  price?: string;
-
-  link?: string;
-}
+import type { Product } from '../data/izdeliya.ts';
 
 interface Props {
   id?: string;
   class?: string;
-
   pretitle?: string;
   title?: string;
   description?: string;
-
   products: Product[];
+  linkPrefix?: string;
 }
 
 const { 
   id, 
   class: className = '', 
-
   pretitle,
   title, 
   description,
-  details,
-  products =[]
+  products = [],
+  linkPrefix = '/izdeliya'
 } = Astro.props;
 
+// убираем слеш в конце, чтобы не было двойных слешей
+const basePath = (linkPrefix || '').replace(/\/$/, '');
 ---
 
 <div class={`products-block ${className}`} id={id || undefined}>
   <div class="container">
-
     <div class="row">
       <div class="c-12 c-md-10 m-md-1">
-        {pretitle &&(
+        {pretitle && (
           <div class="pretitle text--center mb-16">
             <slot name="pretitle">{pretitle}</slot>
           </div>
         )}
-        {title &&(
+        {title && (
           <h2 class="title-h2 text--center">
             <slot name="title">{title}</slot>
           </h2>
         )}
-        {description &&(
+        {description && (
           <div class="mw-wrapper mw-wrapper--center mt-16">
             <p class="text--center">{description}</p>
           </div>
@@ -64,16 +52,34 @@ const {
       <div class="c-12">
         <slot/>
         <div class="cards">
-          {products.map((product, index) => (
+          {products.map((product) => (
             <div class="card card--with-wrapper" data-category={product.category}>
-              <img src={product.image} alt={product.title} />
-              <div class="title-h5 mt-16">{product.title}</div>
-              {product.description &&( <p class="mt-16">{product.description}</p> )}
-              {product.details &&( <p class="text--small mt-16" style="white-space: pre-line">{product.details}</p> )}
-              {product.price &&( <div class="title-h5 mt-16">{product.price}</div> )}
-              {product.link &&(
-                <div class="buttons-wrapper mt-24">
-                  <a href={product.link} class="button button--small button--filled--white">Подробнее</a>
+              <div class="card__image-wrapper">
+                <img src={product.image} alt={product.title} />
+              </div>
+              <div class="card__content-wrapper">
+                <div class="">
+                  <div class="title-h5 mt-16">{product.title}</div>
+                  <!-- {product.description && <p class="mt-16">{product.description}</p>} -->
+                  {product.details && <p class="text--small mt-16" style="white-space: pre-line">{product.details}</p>}
+                </div>
+                <div class="">
+                  {product.price && (
+                    <div class="card__price-wrapper mt-16">
+                      <div class="pretitle">{product.price}</div>
+                      {product.oldPrice && ( <div class="pretitle" style="text-decoration: line-through;">{product.oldPrice}</div> )}
+                    </div>
+                  )}
+                  {product.slug && (
+                    <div class="buttons-wrapper mt-16">
+                      <a href={`${basePath}/${product.slug}/`} class="button button--small button--filled--white">Подробнее</a>
+                    </div>
+                  )}
+                </div>
+              </div>
+              {product.oldPrice && (
+                <div class="sale-badge">
+                  SALE
                 </div>
               )}
             </div>
@@ -81,7 +87,6 @@ const {
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
