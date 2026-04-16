@@ -1,0 +1,64 @@
+@use '_tokens' as *;
+
+body.light-theme {
+
+  color: $gray-4;
+  background: #f7f7f7;
+
+  h1, .title-h1,
+  h2, .title-h2,
+  h3, .title-h3,
+  h4, .title-h4,
+  h5, .title-h5,
+  .pretitle {
+    color: $gray-4;
+  }
+
+  a {
+    color: $gray-4;
+  }
+
+  .button {
+    color: $white;
+    background: $gray-4;
+    &--outlined--gray {
+      color: $gray-4;
+      background: transparent;
+      border: 1px solid $gray-4;
+      &:hover,
+      &.active {
+        color: $white;
+        background: $gray-4;
+      }
+    }
+  }
+
+  .text--white { color: $gray-4; }
+  .border-top,
+  .botder-bottom {
+    border-color: $gray-96;
+  }
+
+  .header-block-type-1 {
+    background: $gray-96;
+  }
+
+  .header-block-type-2 {
+    .wrapper {
+      background: $gray-96;
+    }
+  }
+
+  .blockquote-block-type-1,
+  .cta-block-type-1 {
+    background-color: $gray-96;
+  }
+
+  .card {
+    &--with-wrapper {
+      background: $white;
+      border-color: $white;
+    }
+  }
+
+}
