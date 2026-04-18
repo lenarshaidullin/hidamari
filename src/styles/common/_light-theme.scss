@@ -3,7 +3,7 @@
 body.light-theme {
 
   color: $gray-4;
-  background: #f7f7f7;
+  background: #f7f7fe;
 
   h1, .title-h1,
   h2, .title-h2,
@@ -20,7 +20,8 @@ body.light-theme {
 
   .button {
     color: $white;
-    background: $gray-4;
+    // background: $gray-4;
+    background: #c5a593;
     &--outlined--gray {
       color: $gray-4;
       background: transparent;
@@ -31,6 +32,27 @@ body.light-theme {
         background: $gray-4;
       }
     }
+    &--filled--gray {
+      color: $gray-4;
+      background: $white;
+      &:hover,
+      &.active {
+        color: $white;
+        // background: $gray-4;
+        background: #c5a593;
+      }
+    }
+  }
+
+  .scroll-to-top {
+    &__button {
+      color: $white;
+      background: $gray-4;
+    }
+  }
+
+  .footer {
+    background: $white;
   }
 
   .text--white { color: $gray-4; }
