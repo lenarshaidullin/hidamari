@@ -1,6 +1,7 @@
 @use '_tokens' as *;
 
 .header {
+  background: $gray-8;
   .nav {
     display: flex;
     align-items: center;
@@ -15,7 +16,6 @@
     &__logo {
       a {
         color: $white;
-        
         font-weight: 600;
         text-transform: uppercase;
       }
@@ -49,6 +49,9 @@
       a {
         font-weight: 500;
         text-transform: lowercase;
+        &:hover {
+          color: $white;
+        }
       }
     }
 
