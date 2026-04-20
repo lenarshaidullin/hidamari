@@ -15,7 +15,7 @@ export const products: Product[] = [
   /*
   {
     category: "",
-    image: "/images/placeholders/placeholder-1000x1000.png",
+    image: "/images/placeholders/placeholder-1200x800.png",
     images: [
       "/images/placeholders/placeholder-1000x1000.png",
       "/images/placeholders/placeholder-1000x1000.png",
@@ -50,7 +50,7 @@ export const products: Product[] = [
   /*
   {
     category: "polki",
-    image: "/images/placeholders/placeholder-1000x1000.png",
+    image: "/images/placeholders/placeholder-1200x800.png",
     images: [],
     title: "Полка 3х3",
     description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.",
@@ -79,8 +79,11 @@ export const products: Product[] = [
   },
   {
     category: "polki",
-    image: "/images/placeholders/placeholder-1000x1000.png",
-    images: [],
+    image: "/images/izdeliya/polka-3x5-1.jpg",
+    images: [
+      "/images/izdeliya/polka-3x5-2.jpg",
+      "/images/izdeliya/polka-3x5-3.jpg",
+    ],
     title: "Полка 3х5",
     description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.",
     details: "Материал: ясень \nРазмеры: 510х385х100мм \nПокрытие: натуральное масло",
@@ -88,9 +91,10 @@ export const products: Product[] = [
     stock: "В наличии",
     slug: "polka-3x5",
   },
+  /*
   {
     category: "polki",
-    image: "/images/placeholders/placeholder-1000x1000.png",
+    image: "/images/placeholders/placeholder-1200x800.png",
     images: [],
     title: "Полка 5х5",
     description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.",
@@ -99,6 +103,7 @@ export const products: Product[] = [
     stock: "В наличии",
     slug: "polka-5x5",
   },
+  */
   {
     category: "polki",
     image: "/images/izdeliya/polka-kastom-1-1.jpg",
@@ -115,8 +120,11 @@ export const products: Product[] = [
   },
   {
     category: "polki",
-    image: "/images/placeholders/placeholder-1000x1000.png",
-    images: [],
+    image: "/images/izdeliya/polka-kastom-2-1.jpg",
+    images: [
+      "/images/izdeliya/polka-kastom-2-2.jpg",
+      "/images/izdeliya/polka-kastom-2-3.jpg",
+    ],
     title: "Полка «Кастом 2»",
     description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.",
     details: "Материал: ясень \nРазмеры: 595х380х100мм \nПокрытие: натуральное масло",
@@ -126,8 +134,12 @@ export const products: Product[] = [
   },
   {
     category: "polki",
-    image: "/images/placeholders/placeholder-1000x1000.png",
-    images: [],
+    image: "/images/izdeliya/polka-osoboe-mesto-1.jpg",
+    images: [
+      "/images/izdeliya/polka-osoboe-mesto-2.jpg",
+      "/images/izdeliya/polka-osoboe-mesto-3.jpg",
+      "/images/izdeliya/polka-osoboe-mesto-4.jpg",
+    ],
     title: "Полка «Особое место»",
     description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.",
     details: "Материал: ясень \nРазмеры: \nПокрытие: натуральное масло",
@@ -213,9 +225,10 @@ export const products: Product[] = [
     stock: "В наличии",
     slug: "stolik-iz-yaseniya",
   },
+  /*
   {
     category: "lampy",
-    image: "/images/placeholders/placeholder-1000x1000.png",
+    image: "/images/placeholders/placeholder-1200x800.png",
     images: [],
     title: "Лампа",
     description: "Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.",
@@ -224,6 +237,7 @@ export const products: Product[] = [
     stock: "В наличии",
     slug: "lampa",
   },
+  */
   {
     category: "drugoe",
     image: "/images/izdeliya/podstavka-dlya-nozhey-1.jpg",

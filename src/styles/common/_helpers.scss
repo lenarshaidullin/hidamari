@@ -116,11 +116,11 @@
 .card {
   &--with-wrapper {
     padding: 24px;
-    background: $gray-8;
-    border: 1px solid $gray-12;
+    background: $dark-50;
+    border: 1px solid $dark-100;
     border-radius: 16px;
     &:hover {
-      border: 1px solid $gray-16;
+      
     }
   }
 }

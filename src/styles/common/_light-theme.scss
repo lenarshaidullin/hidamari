@@ -1,9 +1,9 @@
 @use '_tokens' as *;
 
-body.light-theme {
+body.light-theme1 {
 
-  color: $gray-4;
-  background: #f7f7fe;
+  color: $dark-200;
+  background: $light-50;
 
   h1, .title-h1,
   h2, .title-h2,
@@ -11,7 +11,7 @@ body.light-theme {
   h4, .title-h4,
   h5, .title-h5,
   .pretitle {
-    color: $gray-4;
+    color: $dark-50;
   }
 
   a {
@@ -19,29 +19,35 @@ body.light-theme {
   }
 
   .button {
-    color: $white;
-    // background: $gray-4;
-    background: #c5a593;
+
     &--outlined--gray {
-      color: $gray-4;
+      color: $light-900;
       background: transparent;
-      border: 1px solid $gray-4;
+      border: 1px solid $light-900;
       &:hover,
       &.active {
-        color: $white;
-        background: $gray-4;
+        color: $light;
+        background: $light-900;
       }
     }
+
     &--filled--gray {
-      color: $gray-4;
-      background: $white;
+      color: $light-900;
+      background: $light-100;
       &:hover,
       &.active {
-        color: $white;
-        // background: $gray-4;
-        background: #c5a593;
+        color: $light;
+        background: $light-900;
       }
     }
+
+    &--icon {
+      &--vk { background-image: url('/images/icons/icon-vk-black.svg'); }
+      &--telegram { background-image: url('/images/icons/icon-telegram-black.svg'); }
+      &--max { background-image: url('/images/icons/icon-max-black.svg'); }
+      &--pinterest { background-image: url('/images/icons/icon-pinterest-black.svg'); }
+    }
+
   }
 
   .scroll-to-top {
@@ -51,8 +57,14 @@ body.light-theme {
     }
   }
 
+  .header,
   .footer {
     background: $white;
+    a {
+      &:hover {
+        color: $primary;
+      }
+    }
   }
 
   .text--white { color: $gray-4; }
@@ -78,7 +90,7 @@ body.light-theme {
 
   .card {
     &--with-wrapper {
-      background: $white;
+      background: $light;
       border-color: $white;
     }
   }

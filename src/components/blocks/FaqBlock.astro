@@ -1,4 +1,5 @@
 ---
+import { data } from '../../data/data';
 import '../../styles/blocks/_faq-block.scss';
 
 interface FaqItem {
@@ -64,9 +65,10 @@ const {
             </div>
           ))}
         </div>
-        <p class="text--center mt-48">Остались вопрос? Свяжитесь с нами</p>
+        <p class="text--center mt-48">Есть вопрос? Свяжитесь с нами в соцсетях</p>
         <div class="buttons-wrapper buttons-wrapper--jcc mt-24">
-          <a href="#" class="button button--outlined--gray">Задать вопрос</a>
+          <a href={data.social.telegramChannel} class="button button--icon button--icon--telegram"></a>
+          <a href={data.social.max} class="button button--icon button--icon--max"></a>
         </div>
       </div>
     </div>
@@ -78,15 +80,13 @@ const {
   document.querySelectorAll('.faq-item').forEach(item => {
     const title = item.querySelector('.faq-item__title');
     const content = item.querySelector('.faq-item__content');
+
+    if (!title || !content) return;
+
     title.addEventListener('click', () => {
-      title.classList.toggle('active');
-      content.classList.toggle('active');
-      if(content.classList.contains('active')) {
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-      else {
-        content.style.maxHeight = "0";
-      }
+      const isActive = title.classList.toggle('active');
+      content.classList.toggle('active', isActive);
+      content.style.maxHeight = isActive ? `${content.scrollHeight}px` : '0';
     });
   });
 </script>

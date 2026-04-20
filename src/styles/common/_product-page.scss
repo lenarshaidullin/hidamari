@@ -4,11 +4,17 @@
   &-header {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
-    &__image-wrapper {
+    gap: 48px;
+    &__images-wrapper {
+      width: 100%;
+      overflow: hidden;
       img {
         border-radius: 16px;
       }
+    }
+    &__price-wrapper {
+      display: flex;
+      gap: 16px;
     }
   }
 }
@@ -16,8 +22,7 @@
 @media(min-width: $md) {
   .product {
     &-header {
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      grid-template-columns: 1.5fr 1fr;
       align-items: center;
     }
   }

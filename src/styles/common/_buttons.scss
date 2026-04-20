@@ -27,17 +27,22 @@
   align-items: center;
   gap: 8px;
 
-  padding: 16px 24px;
+  padding: 16px 32px;
   border: none;
   border-radius: 12px;
 
-  color: $gray-4;
-  background: $white;
+  color: $dark-50;
+  background: $dark-950;
 
   cursor: pointer;
   transition: $transition;
 
   white-space: nowrap;
+
+  &:hover {
+    color: $dark-50;
+    background: $dark-800;
+  }
 
   &.disabled {
     opacity: .5;
@@ -55,18 +60,30 @@
     color: $white;
   }
 
-  &--outlined--gray {
-    color: $gray-52;
-    background: transparent;
-    border: 1px solid $gray-52;
-    &:hover,
+  &--filled--gray {
+    color: $dark-950;
+    background: $dark-100;
+    &:hover {
+      color: $dark-950;
+      background: $dark-50;
+    }
     &.active {
-      color: $white;
-      background: transparent;
-      border-color: $white;
+      color: $dark-100;
+      background: $dark-950;
     }
   }
 
+  &--outlined--gray {
+    color: $dark-500;
+    background: transparent;
+    border: 1px solid $dark-500;
+    &:hover {
+      color: $dark-950;
+      background: transparent;
+      border-color: $dark-950;
+    }
+  }
+  
   &--icon {
     padding: 0;
     background-color: unset;
@@ -75,12 +92,36 @@
     background-size: 32px;
     width: 32px;
     height: 32px;
-    &--vk { background-image: url('/images/icons/vk.svg'); }
-    &--telegram { background-image: url('/images/icons/telegram.svg'); }
-    &--max { background-image: url('/images/icons/max.svg'); }
-    &--pinterest { background-image: url('/images/icons/pinterest.svg'); }
+    &--vk { background-image: url('/images/icons/icon-vk-white.svg'); }
+    &--telegram { background-image: url('/images/icons/icon-telegram-white.svg'); }
+    &--max { background-image: url('/images/icons/icon-max-white.svg'); }
+    &--pinterest { background-image: url('/images/icons/icon-pinterest-white.svg'); }
   }
 
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 999;
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    color: $dark-50;
+    background: $dark-950;
+    span {
+      font-size: 20px;
+    }
+    &:hover {
+      color: $dark-50;
+      background: $dark-800;
+    }
+  }
 }
 
 .header,

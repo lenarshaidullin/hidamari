@@ -3,8 +3,10 @@
 .swiper {
   &-pagination {
     position: relative;
-    margin-top: 48px;
-
+    margin-top: 24px;
+    &-bullets {
+      bottom: 0;
+    }
     &-bullet {
       width: 24px;
       height: 4px;

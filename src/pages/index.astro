@@ -1,4 +1,5 @@
 ---
+import { data } from '../data/data';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 import ProductsBlock from '../components/blocks/ProductsBlock.astro';
@@ -22,7 +23,7 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
   title="Главная страница" 
   description="Описание главной страницы"
   index={false}
-  canonical="@"
+  canonical=""
   ogImage="@"
   >
 
@@ -34,6 +35,9 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
     title="Предметы ручной работы, которые хочется оставить рядом надолго"
     description="Уникальные изделия из массива дерева ручной работы. Натуральные материалы, внимание к деталям и безупречное качество"
     >
+    <h1 slot="title" class="title-h1 text--center">
+      Предметы ручной работы, <span>которые хочется оставить</span> рядом надолго
+    </h1>
     <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--ew mt-48">
       <a href="#izdeliya" class="button scroll-to">Выбрать изделие</a>
     </div>
@@ -97,7 +101,7 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
         image: "/images/placeholders/placeholder-1000x1000.png",
         title: "Что такое Hidamari?",
         description: "Hidamari — это японское слово, означающее солнечное пятно на полу. Это тихое уютное ощущение, которое хочется продлить. Такими мы создаём наши изделия: не кричащими, не требующими внимания, а просто тёплыми местами в вашем доме. Мы верим, что в мире цифрового шума важно окружать себя подлинными вещами. Такими, которые стареют красиво, приобретая благородную патину времени и сохраняя историю прикосновений.",
-        link: "#",
+        link: "/o-proekte/",
         linkText: "О проекте"
       },
     ]}
@@ -114,13 +118,16 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
     
     products={products}
     >
+    <h2 slot="title" class="title-h2 text--center">
+      Изделия которые мы <span>делаем с любовью</span>
+    </h2>
     <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--gap-4 filter-buttons mb-48">
-      <div class="button button--small button--outlined--gray  active" data-filter="all">Все</div>
-      <div class="button button--small button--outlined--gray" data-filter="polki">Полки</div>
-      <div class="button button--small button--outlined--gray" data-filter="chabani">Чабани</div>
-      <div class="button button--small button--outlined--gray" data-filter="stoliki-i-podnosy">Столики и подносы</div>
-      <div class="button button--small button--outlined--gray" data-filter="lampy">Лампы</div>
-      <div class="button button--small button--outlined--gray" data-filter="drugoe">Другое</div>
+      <div class="button button--small button--filled--gray  active" data-filter="all">Все</div>
+      <div class="button button--small button--filled--gray" data-filter="polki">Полки</div>
+      <div class="button button--small button--filled--gray" data-filter="chabani">Чабани</div>
+      <div class="button button--small button--filled--gray" data-filter="stoliki-i-podnosy">Столики и подносы</div>
+      <div class="button button--small button--filled--gray" data-filter="lampy">Лампы</div>
+      <div class="button button--small button--filled--gray" data-filter="drugoe">Другое</div>
     </div>
   </ProductsBlock>
 
@@ -133,7 +140,7 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
     description="Иногда готовое изделие — не то, что нужно. Пространство требует своих размеров. Человек — своих ощущений. Настроение — своей формы. В Hidamari мы оставляем место для диалога. Свяжитесь с нами и мы создадим предмет, который ляжет в жизнь естественно, как солнечное пятно на полу"
     >
     <div class="buttons-wrapper buttons-wrapper--jcc buttons-wrapper--ew mt-24">
-      <a href="#" class="button">Обсудить заказ</a>
+      <a href={data.social.telegramChannel} class="button">Обсудить заказ</a>
     </div>
   </CtaBlockType1>
 
@@ -184,39 +191,34 @@ import CardsBlockType3 from '../components/blocks/CardsBlockType3.astro';
 
     images={[
       { 
-        url: "/images/placeholders/placeholder-1000x1000.png",
+        url: "/images/izdeliya/podnos-iz-yaseniya-4.jpg",
         description: "Описание картинки 1",
 
       },
       { 
-        url: "/images/placeholders/placeholder-1000x1000.png",
+        url: "/images/izdeliya/stolik-iz-yaseniya-4.jpg",
+        description: "Описание картинки 7",
+
+      },
+      { 
+        url: "/images/izdeliya/polka-malaya-4.jpg",
         description: "Описание картинки 2",
 
       },
       { 
-        url: "/images/placeholders/placeholder-1000x1000.png",
+        url: "/images/izdeliya/polka-3x4-5.jpg",
         description: "Описание картинки 3",
 
       },
+      
       { 
-        url: "/images/placeholders/placeholder-1000x1000.png",
-        description: "Описание картинки 4",
-
-      },
-      { 
-        url: "/images/placeholders/placeholder-1000x1000.png",
+        url: "/images/izdeliya/polka-osoboe-mesto-4.jpg",
         description: "Описание картинки 5",
 
       },
       { 
-        url: "/images/placeholders/placeholder-1000x1000.png",
+        url: "/images/izdeliya/chaban-egoist-4.jpg",
         description: "Описание картинки 6",
-
-      },
-      { 
-        url: "/images/placeholders/placeholder-1000x1000.png",
-        description: "Описание картинки 7",
-
       },
     ]}
   >

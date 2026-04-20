@@ -1,5 +1,6 @@
 ---
 import '../../styles/blocks/_contacts-block.scss';
+import { data } from '../../data/data';
 
 interface Props {
   id?: string;
@@ -23,20 +24,19 @@ const {
 
 <div class={`contacts-block ${className}`} id={id || undefined}>
   <div class="container">
-
     <div class="row">
       <div class="c-12 c-md-10 m-md-1">
-        {pretitle &&(
+        {pretitle && (
           <div class="pretitle text--center mb-16">
             <slot name="pretitle">{pretitle}</slot>
           </div>
         )}
-        {title &&(
+        {title && (
           <h2 class="title-h2 text--center">
             <slot name="title">{title}</slot>
           </h2>
         )}
-        {description &&(
+        {description && (
           <div class="mw-wrapper mw-wrapper--center mt-16">
             <p class="text--center">{description}</p>
           </div>
@@ -49,35 +49,42 @@ const {
         <div class="cards">
           <div class="card card--with-wrapper">
             <p class="text--x-small text--medium text--white">Адрес</p>
-            <p>Московская область, Ленинский район, пос. Боброво, ул. Лесная, д. 20</p>
+            <p>{data.address}</p>
           </div>
           <div class="card card--with-wrapper">
             <p class="text--x-small text--medium text--white">Режим работы</p>
-            <p>ежедневно с 09:00 до 21:00</p>
+            <p>{data.workingHours}</p>
           </div>
           <div class="card card--with-wrapper">
             <p class="text--x-small text--medium text--white">Телефон</p>
-            <p><a href="tel:+7 (926) 867-06-80" class="text--medium">+7 (926) 867-06-80</a></p>
+            <p><a href={data.phoneHref} class="text--medium">{data.phone}</a></p>
           </div>
           <div class="card card--with-wrapper">
             <p class="text--x-small text--medium text--white">Электропочта</p>
-            <p><a href="mailto:l.shaidullin@yandex.ru" class="text--medium">l.shaidullin@yandex.ru</a></p>
+            <p><a href={data.emailHref} class="text--medium">{data.email}</a></p>
           </div>
         </div>
-        <div class="subscribe mt-8">
+        <div class="subscribe card--with-wrapper mt-8">
           <h2 class="title-h2 text--center">Мы на связи</h2>
           <div class="mw-wrapper mw-wrapper--center mt-16">
             <p class="text--center">Подписывайтесь на наши соцсети, чтобы поддержать наш проект и не пропустить интересные обновления!</p>
           </div>
           <div class="buttons-wrapper buttons-wrapper--jcc mt-24">
-            <a href="#" class="button button--icon button--icon--vk"></a>
-            <a href="#" class="button button--icon button--icon--telegram"></a>
-            <a href="#" class="button button--icon button--icon--max"></a>
-            <a href="#" class="button button--icon button--icon--pinterest"></a>
+            {data.social.vk && (
+              <a href={data.social.vk} class="button--icon button--icon--vk"></a>
+            )}
+            {data.social.telegramChannel && (
+              <a href={data.social.telegramChannel} class="button--icon button--icon--telegram"></a>
+            )}
+            {data.social.max && (
+              <a href={data.social.max} class="button--icon button--icon--max"></a>
+            )}
+            {data.social.pinterest && (
+              <a href={data.social.pinterest} class="button--icon button--icon--pinterest"></a>
+            )}
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>

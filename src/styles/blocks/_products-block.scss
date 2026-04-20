@@ -8,7 +8,9 @@
   .card {
     display: flex;
     flex-direction: column;
-    position: relative;
+
+    color: $dark-500;
+
     &__image-wrapper {
       img {
         border-radius: 16px;
@@ -24,6 +26,8 @@
       display: flex;
       gap: 16px;
     }
+
+    // card
     &--hidden {
       display: none;
       opacity: 0;
@@ -31,26 +35,10 @@
     &--visible {
       animation: fadeIn .2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
-    .sale-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 48px;
-      height: 48px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
+    //
+    &:hover {
       
-      font-size: 8px;
-      font-weight: bold;
-
-      color: $gray-4;
-      background: $white;
-      border-radius: 50%;
-
-      box-shadow: 0 8px 16px rgba(0,0,0,.1);
     }
   }
 }

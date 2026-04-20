@@ -6,8 +6,8 @@ body {
 }
 
 body {
-  color: $gray-52;
-  background: $gray-4;
+  color: $dark-500;
+  background: $dark;
 }
 
 p {
@@ -18,22 +18,26 @@ p {
 }
 
 a {
-  color: $gray-52;
+  color: $dark-500;
   text-decoration: none;
+  &:hover {
+    color: $dark-950;
+  }
 }
 
 h1, .title-h1,
 h2, .title-h2,
 h3, .title-h3,
 h4, .title-h4,
-h5, .title-h5,
-.pretitle {
+h5, .title-h5 {
 
   padding: 0;
   margin: 0;
 
   font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
+  font-weight: 400;
+
+  // text-transform: uppercase;
 
   line-height: 1.1;
   color: $white;
@@ -57,15 +61,30 @@ h5, .title-h5,
 }
 
 .text--white {
-  color: $white;
+  color: $dark-950;
 }
 
-.title-h1 { font-size: 36px; }
-.title-h2 { font-size: 32px; }
+.pretitle {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.title-h1 { 
+  font-size: 36px;
+  span {
+    font-style: italic;
+  }
+}
+.title-h2 { 
+  font-size: 32px;
+  span {
+    font-style: italic;
+  }
+}
 .title-h3 { font-size: 28px; }
 .title-h4 { font-size: 24px; }
 .title-h5 { font-size: 20px; }
-.pretitle { font-size: 16px; }
 
 @media(min-width: $sm) {
   .title-h1 { font-size: 48px; }
@@ -75,5 +94,5 @@ h5, .title-h5,
 }
 
 @media(min-width: $md) {
-  .title-h1 { font-size: 64px; }
+  .title-h1 { font-size: 80px; line-height: 1; }
 }

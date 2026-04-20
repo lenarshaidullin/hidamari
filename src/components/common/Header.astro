@@ -1,3 +1,7 @@
+---
+import { data } from '../../data/data';
+---
+
 <header class="header" id="top">
   <div class="container">
     <div class="row">
@@ -8,17 +12,21 @@
           </div>
           <div class="nav__links-wrapper">
             <div class="nav__links">
-              <a href="/vse-bloki">Все блоки</a>
-              <a href="/o-proekte/">О проекте</a>
+              <!-- <a href="/o-proekte/">О проекте</a> -->
               <a href="/izdeliya/">Изделия</a>
-              <a href="/portfolio/">Портфолио</a>
-              <a href="/otzyvy/">Отзывы</a>
+              <!-- <a href="/portfolio/">Портфолио</a> -->
+              <!-- <a href="/otzyvy/">Отзывы</a> -->
+              <a href="/kontakty/">Контакты</a>
             </div>
           </div>
           <div class="nav__buttons">
             <div class="buttons-wrapper">
-              <a href="#" class="button button--icon button--icon--telegram"></a>
-              <a href="#" class="button button--icon button--icon--max"></a>
+              {data.social.telegramChannel && (
+                <a href={data.social.telegramChannel} class="button--icon button--icon--telegram"></a>
+              )}
+              {data.social.max && (
+                <a href={data.social.max} class="button--icon button--icon--max"></a>
+              )}
             </div>
             <div class="hamburger">
               <span class="line"></span>
@@ -33,15 +41,19 @@
 </header>
 
 <script>
-	document.addEventListener('DOMContentLoaded', function() {
-    let hamburger = document.querySelector('.hamburger');
-    let linksWrapper = document.querySelector('.nav__links-wrapper');
-    hamburger.addEventListener('click', function() {
-      this.classList.toggle('active');
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const linksWrapper = document.querySelector('.nav__links-wrapper');
+
+    if (!hamburger || !linksWrapper) return;
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
       linksWrapper.classList.toggle('active');
     });
-    document.addEventListener('click', function(event) {
-      if (!event.target.closest('.nav__links-wrapper') && !event.target.closest('.hamburger')) {
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav__links-wrapper') && !e.target.closest('.hamburger')) {
         linksWrapper.classList.remove('active');
         hamburger.classList.remove('active');
       }

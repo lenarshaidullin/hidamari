@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { products } from '../../data/izdeliya';
+import { data } from '../../data/data';
 
 export async function getStaticPaths() {
   return products.map((product) => ({
@@ -21,19 +22,42 @@ const { product } = Astro.props;
     <div class="container pt-64">
       <div class="row">
         <div class="c-12">
-          <a href="/izdeliya/">Назад</a>
+          <div class="breadcrumbs text--small">
+            <a href="/">Главная</a> / <a href="/izdeliya/">Изделия</a> / <span>{product.title}</span>
+          </div>
           <div class="product-header mt-48">
-            <div class="product-header__image-wrapper">
-              <img src={product.image} alt={product.title} />
+            <div class="product-header__images-wrapper">
+              <div class="swiper swiper-images">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src={product.image} alt={product.title} />
+                  </div>
+                  {product.images?.map(img => ( 
+                    <div class="swiper-slide">
+                      <img src={img} alt={product.title} /> 
+                    </div>
+                  ))}
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
             </div>
             <div class="product-header__content-wrapper">
-              <h1 class="title-h1">{product.title}</h1>
-              {product.description && ( <p class="mt-16">{product.description}</p> )}
+              <h1 class="title-h2">{product.title}</h1>
+              <!-- {product.description && ( <p class="mt-16">{product.description}</p> )} -->
               {product.details &&( <p class="text--small mt-16" style="white-space: pre-line">{product.details}</p> )}
-              {product.stock && ( <p class="mt-16">{product.stock}</p> )}
-              {product.price && ( <p class="pretitle mt-16">{product.price}</p> )}
-              <div class="buttons-wrapper mt-48">
-                <a href="#" class="button button--filled--white">Купить</a>
+              {product.stock && ( <p class="text--small mt-16">{product.stock}</p> )}
+              {product.price && (
+                <div class="product-header__price-wrapper mt-24">
+                  <div class="pretitle text--white">{product.price}</div>
+                  {product.oldPrice && ( <div class="pretitle" style="text-decoration: line-through;">{product.oldPrice}</div> )}
+                </div>
+              )} 
+              <div class="mt-48">
+                <p class="text--small">Для заказа свяжитесь с нами</p>
+                <div class="buttons-wrapper buttons-wrapper--ew mt-16">
+                  {data.social.telegramChannel && ( <a href={data.social.telegramChannel} class="button">Написать в Telegram</a> )}
+                  {data.social.max && ( <a href={data.social.max} class="button">Написать в MAX</a> )}
+                </div>
               </div>
             </div>
           </div>
@@ -41,5 +65,23 @@ const { product } = Astro.props;
       </div>
     </div>
   </div>
+
+  <script client:load>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.swiper-images').forEach(el => {
+        if (el.classList.contains('swiper-initialized')) return;
+        new Swiper(el, {
+          pagination: { el: '.swiper-pagination', clickable: true },
+          breakpoints: {
+            0:{ 
+              slidesPerView: 1, 
+              slidesPerGroup: 1, 
+              spaceBetween: 8 
+            }
+          },
+        });
+      });
+    });
+  </script>
 
 </BaseLayout>
